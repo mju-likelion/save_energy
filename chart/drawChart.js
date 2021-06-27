@@ -69,4 +69,32 @@ var myChart = new Chart(ctx, {
       }] 
     } 
   } 
-}); 
+});
+function cha(){
+  var jan = document.getElementById('inputJan').value;
+  var feb = document.getElementById('inputFeb').value;
+  var mar = document.getElementById('inputMar').value;
+  var apr = document.getElementById('inputApr').value;
+  var may = document.getElementById('inputMay').value;
+  var jun = document.getElementById('inputJun').value;
+  var Jul = document.getElementById('inputJul').value;
+  var aug = document.getElementById('inputAug').value;
+  var Sep = document.getElementById('inputSep').value;
+  var Oct = document.getElementById('inputOct').value;
+  var Nov = document.getElementById('inputNov').value;
+  var Dec = document.getElementById('inputDec').value;
+  myChart.data.datasets[0].data[0] = jan;
+  myChart.data.datasets[0].data[1] = feb;
+  myChart.data.datasets[0].data[2] = mar;
+  myChart.data.datasets[0].data[3] = apr;
+  myChart.data.datasets[0].data[4] = may;
+  myChart.data.datasets[0].data[5] = jun;
+  myChart.data.datasets[0].data[6] = Jul;
+  myChart.data.datasets[0].data[7] = aug;
+  myChart.data.datasets[0].data[8] = Sep;
+  myChart.data.datasets[0].data[9] = Oct;
+  myChart.data.datasets[0].data[10] = Nov;
+  myChart.data.datasets[0].data[11] = Dec;
+  myChart.update();
+  console.log(myChart.data.datasets[0].data[1]);
+}

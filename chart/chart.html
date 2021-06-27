@@ -34,8 +34,8 @@
         <!-- SAVE_ENERGY -->
       </div>
       <ul class="navbar_menu">
-        <li><a href="#" title="//">대기/소비 전력 확인하기</a></li>
-        <li><a href="chart/chart.html" title="//">전기&CO2 알아보기</a></li>
+        <li><a href="power_calculation.html" title="//">대기/소비 전력 확인하기</a></li>
+        <li><a href="chart.html" title="//">전기&CO2 알아보기</a></li>
         <li><a href="#" title="//">나만 몰랐던 사실 알기</a></li>
         <li><a href="community.html" title="//">커뮤니티</a></li>
         <li><a href="#" title="//">후원하기</a></li>
@@ -52,64 +52,52 @@
     <div class="parent">
       <div class="January">
         <p class="text-center">January</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJan">
-        <button type="button" class="btn" id="inputjanBtn">적용하기</button>
-
+        <input style="text-align: center;" type="text" size="4" id="inputJan"value="0">
       </div>
       <div class="February">
         <p class="text-center">February</p>
-        <input style="text-align: center;" type="text" size="4" id="inputFeb">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputFeb"value="0">
       </div>
       <div class="March">
         <p class="text-center">March</p>
-        <input style="text-align: center;" type="text" size="4" id="inputMar">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputMar"value="0">
       </div>
       <div class="April">
         <p class="text-center">April</p>
-        <input style="text-align: center;" type="text" size="4" id="inputApr">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputApr"value="0">
       </div>
       <div class="May">
         <p class="text-center">May</p>
-        <input style="text-align: center;" type="text" size="4" id="inputMay">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputMay"value="0">
       </div>
       <div class="June">
         <p class="text-center">June</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJun">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputJun"value="0">
       </div>
       <div class="July">
         <p class="text-center">July</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJul">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputJul"value="0">
       </div>
       <div class="August">
         <p class="text-center">August</p>
-        <input style="text-align: center;" type="text" size="4" id="inputAug">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputAug"value="0">
       </div>
       <div class="September">
         <p class="text-center">September</p>
-        <input style="text-align: center;" type="text" size="4" id="inputSep">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputSep"value="0">
       </div>
       <div class="October">
         <p class="text-center">October</p>
-        <input style="text-align: center;" type="text" size="4" id="inputOct">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputOct"value="0">
       </div>
       <div class="November">
         <p class="text-center">November</p>
-        <input style="text-align: center;" type="text" size="4" id="inputNov">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputNov"value="0">
       </div>
       <div class="December">
         <p class="text-center">December</p>
-        <input style="text-align: center;" type="text" size="4" id="inputDec">
-        <button type="button" class="btn">적용하기</button>
+        <input style="text-align: center;" type="text" size="4" id="inputDec" value="0">
+        <button type="button" class="btn" onclick="cha()">적용하기</button>
       </div>
     </div>
     
@@ -126,7 +114,9 @@
       myChart.update();
     </script>
 
+
   <!-- 차트그리기 -->
   <script src="drawChart.js"></script>
+
   </body>
 </html>

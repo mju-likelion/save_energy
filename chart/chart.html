@@ -1,278 +1,285 @@
 <html>
 
-  <head>
-    <title>월별 사용량 차트</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-    <style>
-      .parent{
-        width: 100%;
-        margin: 10px auto;
-        display: flex;
-      }
+<head>
+  <title>월별 사용량 차트</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <style>
+    .parent {
+      width: 100%;
+      margin: 10px auto;
+      display: flex;
+    }
 
-      .January {
-        text-align: center;
-        /* border: 1px solid red; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .January {
+      text-align: center;
+      /* border: 1px solid red; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .February{
-        text-align: center;
-        /* border: 1px solid green; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .February {
+      text-align: center;
+      /* border: 1px solid green; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .March{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .March {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .April{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .April {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .May{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .May {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .June{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .June {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .July{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .July {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .August{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .August {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .September{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .September {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .October{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
-      
-      .November{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
-      
-      .December{
-        text-align: center;
-        /* border: 1px solid blue; */
-        flex:1;
-        margin: 0px 0.5%;
-        width:8%;
-        box-sizing: border-box;
-      }
+    .October {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .input{
-        margin: 0px 0px 20px 30px;
-      }
+    .November {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-      .btn{
-        margin: 10px;
-      }
-    </style>
-  </head>
+    .December {
+      text-align: center;
+      /* border: 1px solid blue; */
+      flex: 1;
+      margin: 0px 0.5%;
+      width: 8%;
+      box-sizing: border-box;
+    }
 
-  <body>
-    <h2 class="text-center">월별 사용량 차트</h2>
-    <div class="container"> 
-      <canvas id="myChart"></canvas> 
+    .input {
+      margin: 0px 0px 20px 30px;
+    }
+
+    .btn {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="text-center">월별 사용량 차트</h2>
+  <div class="container">
+    <canvas id="myChart"></canvas>
+  </div>
+  <div class="input">월별 사용량 입력하기 (단위 : )</div>
+  <div class="parent">
+    <div class="January">
+      <p class="text-center">January</p>
+      <input style="text-align: center;" type="text" size="4" id="inputJan">
+      <button type="button" class="btn" id="inputjanBtn">적용하기</button>
+
     </div>
-    <div class="input">월별 사용량 입력하기 (단위 : )</div>
-    <div class="parent">
-      <div class="January">
-        <p class="text-center">January</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJan">
-        <button type="button" class="btn" id="inputjanBtn">적용하기</button>
-
-      </div>
-      <div class="February">
-        <p class="text-center">February</p>
-        <input style="text-align: center;" type="text" size="4" id="inputFeb">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="March">
-        <p class="text-center">March</p>
-        <input style="text-align: center;" type="text" size="4" id="inputMar">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="April">
-        <p class="text-center">April</p>
-        <input style="text-align: center;" type="text" size="4" id="inputApr">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="May">
-        <p class="text-center">May</p>
-        <input style="text-align: center;" type="text" size="4" id="inputMay">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="June">
-        <p class="text-center">June</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJun">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="July">
-        <p class="text-center">July</p>
-        <input style="text-align: center;" type="text" size="4" id="inputJul">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="August">
-        <p class="text-center">August</p>
-        <input style="text-align: center;" type="text" size="4" id="inputAug">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="September">
-        <p class="text-center">September</p>
-        <input style="text-align: center;" type="text" size="4" id="inputSep">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="October">
-        <p class="text-center">October</p>
-        <input style="text-align: center;" type="text" size="4" id="inputOct">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="November">
-        <p class="text-center">November</p>
-        <input style="text-align: center;" type="text" size="4" id="inputNov">
-        <button type="button" class="btn">적용하기</button>
-      </div>
-      <div class="December">
-        <p class="text-center">December</p>
-        <input style="text-align: center;" type="text" size="4" id="inputDec">
-        <button type="button" class="btn">적용하기</button>
-      </div>
+    <div class="February">
+      <p class="text-center">February</p>
+      <input style="text-align: center;" type="text" size="4" id="inputFeb">
+      <button type="button" class="btn">적용하기</button>
     </div>
-    
-    <!-- 차트입력 -->
-    <script>
-      // document.getElementById('inputJanBtn').onclick = run();
-      // var jan;
-      // function run() {
-      //   jan = $('inputJan').val();
-      // }
-      // var arr = new Array();
-      // arr = document.getElementById("inputJen");
-      var jan = $('#inputJan').val();
-      myChart.update();
-    </script>
+    <div class="March">
+      <p class="text-center">March</p>
+      <input style="text-align: center;" type="text" size="4" id="inputMar">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="April">
+      <p class="text-center">April</p>
+      <input style="text-align: center;" type="text" size="4" id="inputApr">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="May">
+      <p class="text-center">May</p>
+      <input style="text-align: center;" type="text" size="4" id="inputMay">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="June">
+      <p class="text-center">June</p>
+      <input style="text-align: center;" type="text" size="4" id="inputJun">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="July">
+      <p class="text-center">July</p>
+      <input style="text-align: center;" type="text" size="4" id="inputJul">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="August">
+      <p class="text-center">August</p>
+      <input style="text-align: center;" type="text" size="4" id="inputAug">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="September">
+      <p class="text-center">September</p>
+      <input style="text-align: center;" type="text" size="4" id="inputSep">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="October">
+      <p class="text-center">October</p>
+      <input style="text-align: center;" type="text" size="4" id="inputOct">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="November">
+      <p class="text-center">November</p>
+      <input style="text-align: center;" type="text" size="4" id="inputNov">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+    <div class="December">
+      <p class="text-center">December</p>
+      <input style="text-align: center;" type="text" size="4" id="inputDec">
+      <button type="button" class="btn">적용하기</button>
+    </div>
+  </div>
 
-    <!-- 부트스트랩 --> 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
-    
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+  <!-- 차트입력 -->
+  <script>
+    // document.getElementById('inputJanBtn').onclick = run();
+    // var jan;
+    // function run() {
+    //   jan = $('inputJan').val();
+    // }
+    // var arr = new Array();
+    // arr = document.getElementById("inputJen");
+    var jan = $('#inputJan').val();
+    myChart.update();
+  </script>
 
-    <!-- 차트 --> 
-    <script> 
-      var ctx = document.getElementById('myChart'); 
-      var myChart = new Chart(ctx, { 
-        type: 'bar', 
-        data: { 
-          labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'], 
-          datasets: [{ 
-            label: '# 월별 사용량', 
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)', 
-              'rgba(54, 162, 235, 0.2)', 
-              'rgba(255, 206, 86, 0.2)', 
-              'rgba(75, 192, 192, 0.2)', 
-              'rgba(153, 102, 255, 0.2)', 
-              'rgba(255, 159, 64, 0.2)' ,
-              'rgba(255, 99, 132, 0.2)', 
-              'rgba(54, 162, 235, 0.2)', 
-              'rgba(255, 206, 86, 0.2)', 
-              'rgba(75, 192, 192, 0.2)', 
-              'rgba(153, 102, 255, 0.2)', 
-              'rgba(255, 159, 64, 0.2)' ,
-            ], 
-            borderColor: [ 
-              'rgba(255, 99, 132, 1)', 
-              'rgba(54, 162, 235, 1)', 
-              'rgba(255, 206, 86, 1)', 
-              'rgba(75, 192, 192, 1)', 
-              'rgba(153, 102, 255, 1)', 
-              'rgba(255, 159, 64, 1)',
-              'rgba(255, 99, 132, 1)', 
-              'rgba(54, 162, 235, 1)', 
-              'rgba(255, 206, 86, 1)', 
-              'rgba(75, 192, 192, 1)', 
-              'rgba(153, 102, 255, 1)', 
-              'rgba(255, 159, 64, 1)',
-            ], 
-            borderWidth: 1 
+  <!-- 부트스트랩 -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+
+  <!-- 차트 -->
+  <script>
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'],
+        datasets: [{
+          label: '# 월별 사용량',
+          data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
           }]
-        }, 
-        options: { 
-          scales: { 
-            yAxes: [{ 
-              ticks: { 
-                beginAtZero: true
-              } 
-            }] 
-          } 
-        } 
-      }); 
-    </script>
-  </body>
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>

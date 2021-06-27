@@ -1,0 +1,16 @@
+
+#community {
+  /* display: flex; */
+}
+
+#btn {
+  display:inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: pink;
+  border-radius: 3rem;
+}
+#table1{
+  display: flex;
+  justify-content: center;
+}

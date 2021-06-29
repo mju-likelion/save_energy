@@ -566,16 +566,44 @@
 				</div>
 			</div>
 		</div>
+		
 	</section>
 
 
 	<section class="testimony-section" data-section="testimony">
 		<div class="container">
+			<div class="co2calculate">
+				<br>
+				<script src="co2.js"></script>
+				<h3 class="text-center">전기와 CO2 알아보기</h3>
+				<br>
+				<div class="container"> 
+					<table class="co2 table">
+						<thead>
+							<tr class="warning">
+								<th>#</th>
+								<th>월간 사용량</th>
+								<th>CO2 발생량</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>☆</th>
+								<td><input id = "month_usage" size="2" value= "0" onkeyup="occurr()"> kWh</td>
+								<td><div id="co2occurr">g</div></td>
+							</tr>
+							<tr>
+						</tbody>
+					</table> 
+				</div>
+			</div>
 			<div class="row ftco-animate justify-content-center">
 				<div class="col-md-12 d-flex align-items-center">
 					<div class="carousel-testimony owl-carousel">
-						<div class="item">
+						<!-- <div class="item">
+							
 							<div class="testimony-wrap d-flex align-items-stretch">
+								
 								<div class="user-img d-flex align-self-stretch" style="background-image: url(images/testimony-1.jpg)">
 								</div>
 								<div class="text d-flex align-items-center">
@@ -591,9 +619,10 @@
 										<span class="position">CEO, Founder</span>
 									</div>
 								</div>
+								
 							</div>
-						</div>
-						<div class="item">
+						</div> -->
+						<!-- <div class="item">
 							<div class="testimony-wrap d-flex align-items-stretch">
 								<div class="user-img d-flex align-self-stretch" style="background-image: url(images/testimony-2.jpg)">
 								</div>
@@ -611,7 +640,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

@@ -5,22 +5,23 @@
 	<title>SAVE_ENERGY</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
-
+	<!-- 차트생성 cdn -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script> 
 	<link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
 	<link rel="stylesheet" href="css/animate.css">
-
+	
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 	<link rel="stylesheet" href="css/magnific-popup.css">
-
+	
 	<link rel="stylesheet" href="css/aos.css">
-
+	
 	<link rel="stylesheet" href="css/ionicons.min.css">
-
+	
 	<link rel="stylesheet" href="css/flaticon.css">
 	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/chart.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -208,7 +209,7 @@
 			</div>
 		</div>
 	</section>
-		<section class="ftco-section ftco-project bg-light" data-section="projects">
+	<section class="ftco-section ftco-project bg-light" data-section="projects">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-3">
 				<div class="col-md-7 heading-section text-center ftco-animate">
@@ -221,54 +222,54 @@
 				<!-- <div class="col-md-6 order-md-last d-flex"> -->
 				<!-- <div class="container"> -->
 
-					<body>
-						<table class="table table-bordered">
-							<thead>
-								<tr class="warning">
-									<th>순번\종류</th>
-									<th>제품 종류</th>
-									<th>소비전력(일)</th>
-									<th>평균 사용시간</th>
-									<th>월간 사용량</th>
-									<th>예상 전기요금</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr class="warning">
-									<th>1</th>
-									<td>
-										<select id="Kind" onclick="Power_Consumption()">
-											<option>선택</option>
-											<option>TV</option>
-											<option>에어컨</option>
-											<option>냉장고</option>
-											<option>컴퓨터</option>
-											<option>세탁기</option>
-											<option>기타</option>
-										</select>
-									</td>
-									<td><input id="Power_Consumption" size="2" value="0">W
-									<td><input id="time" size="2" value="0" onkeyup="average_time()">시간</td>
-									<td>
-										<div id="month_time">kWh</div>
-									</td>
-									<td>
-										<div id="total">원</div>
-									</td>
-								</tr>
-								<tr>
-							</tbody>
-						</table>
+				<body>
+					<table class="table table-bordered">
+						<thead>
+							<tr class="warning">
+								<th>순번\종류</th>
+								<th>제품 종류</th>
+								<th>소비전력(일)</th>
+								<th>평균 사용시간</th>
+								<th>월간 사용량</th>
+								<th>예상 전기요금</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="warning">
+								<th>1</th>
+								<td>
+									<select id="Kind" onclick="Power_Consumption()">
+										<option>선택</option>
+										<option>TV</option>
+										<option>에어컨</option>
+										<option>냉장고</option>
+										<option>컴퓨터</option>
+										<option>세탁기</option>
+										<option>기타</option>
+									</select>
+								</td>
+								<td><input id="Power_Consumption" size="2" value="0">W
+								<td><input id="time" size="2" value="0" onkeyup="average_time()">시간</td>
+								<td>
+									<div id="month_time">kWh</div>
+								</td>
+								<td>
+									<div id="total">원</div>
+								</td>
+							</tr>
+							<tr>
+						</tbody>
+					</table>
 
 
-				<!-- <div class="col-md-6 d-flex"> -->
+					<!-- <div class="col-md-6 d-flex"> -->
 					<!-- <div id="map" class="bg-white"></div> -->
-				<!-- </div> -->
+					<!-- </div> -->
 			</div>
 		</div>
 	</section>
 
-	
+
 	<!-- <section class="ftco-section ftco-project bg-light" data-section="projects">
 		<div class="container-fluid px-md-5">
 			<div class="row justify-content-center pb-5">
@@ -378,7 +379,7 @@
 	</section> -->
 
 	<section class="ftco-section" data-section="team">
-		<div class="container-fluid p-0">
+		<!-- <div class="container-fluid p-0">
 			<div class="row no-gutters justify-content-center pb-5">
 				<div class="col-md-12 heading-section text-center ftco-animate">
 					<span class="subheading">Architect</span>
@@ -565,13 +566,106 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+
+		<div class="container" id="myct">
+			<!-- SAVE_ENERGY -->
+	 <h1 class="text-center">월별 사용량 차트</h1>
+	 <div class="container"> 
+	 <canvas id="myChart"></canvas> 
+	 </div>
+	 <div class="input">월별 사용량 입력하기 (단위 : kWh)</div>
+	 <div class="parent">
+			<div class="January">
+				 <p class="text-center">January</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputJan"value="0">
+			</div>
+			<div class="February">
+				 <p class="text-center">February</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputFeb"value="0">
+			</div>
+			<div class="March">
+				 <p class="text-center">March</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputMar"value="0">
+			</div>
+			<div class="April">
+				 <p class="text-center">April</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputApr"value="0">
+			</div>
+			<div class="May">
+				 <p class="text-center">May</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputMay"value="0">
+			</div>
+			<div class="June">
+				 <p class="text-center">June</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputJun"value="0">
+			</div>
+			<div class="July">
+				 <p class="text-center">July</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputJul"value="0">
+			</div>
+			<div class="August">
+				 <p class="text-center">August</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputAug"value="0">
+			</div>
+			<div class="September">
+				 <p class="text-center">September</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputSep"value="0">
+			</div>
+			<div class="October">
+				 <p class="text-center">October</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputOct"value="0">
+			</div>
+			<div class="November">
+				 <p class="text-center">November</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputNov"value="0">
+			</div>
+			<div class="December">
+				 <p class="text-center">December</p>
+				 <input style="text-align: center;" type="text" size="4" id="inputDec" value="0">
+				 <button type="button" class="btn" onclick="cha()">적용하기</button>
+			</div>
+	 </div>
+				 
+				 <!-- 차트입력 -->
+	 <script>
+	 var jan = $('#inputJan').val();
+	 myChart.update();
+	 </script>
+	
+			<!-- 차트그리기 -->
+	 </div>
 	</section>
 
-
+	
 	<section class="testimony-section" data-section="testimony">
-		<div class="container">
-			<div class="row ftco-animate justify-content-center">
+			<!-- SAVE_ENERGY -->
+<div class="container" id = "myct">
+	 <br>
+	 <h1 class="text-center">전기와 CO2 알아보기</h1>
+	 <br>
+	 <div class="container"> 
+			<table class="co2 table">
+				 <thead>
+						<tr class="warning">
+							 <th>#</th>
+							 <th>월간 사용량</th>
+							 <th>CO2 발생량</th>
+						</tr>
+				 </thead>
+				 <tbody>
+						<tr>
+							 <th>☆</th>
+							 <td><input id = "month_usage" size="2" value= "0" onkeyup="occurr()"> kWh</td>
+							 <td><div id="co2occurr">g</div></td>
+						</tr>
+						<tr>
+				 </tbody>
+			</table> 
+	 </div>
+</div>
+</section>
+			<!-- <div class="row ftco-animate justify-content-center">
 				<div class="col-md-12 d-flex align-items-center">
 					<div class="carousel-testimony owl-carousel">
 						<div class="item">
@@ -614,9 +708,39 @@
 						</div>
 					</div>
 				</div>
+			</div> -->
+		<!-- </div> -->
+	<!-- </section> -->
+
+	<!-- <section class="ftco-section ftco-project bg-light" data-section="projects"> -->
+		<!-- SAVE_ENERGY -->
+		<!-- <div class="container" id="myct">
+			<br> -->
+			<!-- <h1 class="text-center">전기와 CO2 알아보기</h1> -->
+			<!-- <br>
+			<div class="container">
+				<table class="co2 table">
+					<thead>
+						<tr class="warning">
+							<th>#</th>
+							<th>월간 사용량</th>
+							<th>CO2 발생량</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>☆</th>
+							<td><input id="month_usage" size="2" value="0" onkeyup="occurr()"> kWh</td>
+							<td>
+								<div id="co2occurr">g</div>
+							</td>
+						</tr>
+						<tr>
+					</tbody>
+				</table>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section class="ftco-section bg-light" data-section="blog">
 		<div class="container">
@@ -956,7 +1080,7 @@
 		</div>
 	</section>
 
-	
+
 	<section class="ftco-section contact-section">
 		<div class="container">
 			<div class="row d-flex contact-info">
@@ -1100,6 +1224,9 @@
 	<script src="js/main.js"></script>
 	<script src="js/clock.js"></script>
 	<script src="js/power_calculation.js"></script>
+	<script src="js/drawChart.js"></script>
+	<script src="js/co2.js"></script>
+
 
 </body>
 

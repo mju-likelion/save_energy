@@ -11,11 +11,11 @@ window.onload = function () {
   var day = new Date().getDay();
   var hour = new Date().getHours();
   var minute = new Date().getMinutes();
-  if (hour == 21 && minute == 21) {
+  if (month == 04 && day == 22) {
     document.body.style.backgroundImage = "url('/earth.jpg')";
     // document.body.style.backgroundColor="black";
   }
-  if(hour==20 && minute==5 ){
+  if(hour==16 && minute==22 ){
     document.getElementById("event_text").innerHTML  = "현재 시간은 4시 22분입니다.<br> 4월 22일은 지구의 날입니다!"
   }
 };

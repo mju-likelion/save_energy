@@ -38,3 +38,31 @@ function electricity_calculation(month_time){
   var e = parseInt(i*0.037-(i*0.037%10)); //전력산업기반기금
   document.getElementById('total').innerText = i+v+e + '원';
 }
+
+function Power_standby() { //종류별 대기전력 자동지정
+  const Power = document.getElementById('Standby_Kind').value;
+  if(Power === "TV"){
+    document.getElementById('Power_Standby').value = '0.25';
+  }
+  if(Power === "에어컨"){
+    document.getElementById('Power_Standby').value = '10.7';
+  }
+  if(Power === "냉장고"){
+    document.getElementById('Power_Standby').value = '3.7';
+  }
+  if(Power === "컴퓨터"){
+    document.getElementById('Power_Standby').value = '1.3';
+  }
+  if(Power === "세탁기"){
+    document.getElementById('Power_Standby').value = '4';
+  }
+  if(Power === "기타"){
+    document.getElementById('Power_Standby').value = '0';
+  }
+}
+function average_time_standby() { //평균 사용시간 계산
+  const time = document.getElementById('time_standby').value;
+  const consum = document.getElementById('Power_Standby').value;
+  const month_time = (time*consum*30);
+  document.getElementById("month_time_standby").innerText = month_time + 'W';
+}

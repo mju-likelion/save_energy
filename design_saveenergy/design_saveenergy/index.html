@@ -227,7 +227,7 @@
 					<table class="table table-bordered">
 						<thead>
 							<tr class="warning">
-								<th>순번\종류</th>
+								<th style="width: 100px;">순번\종류</th>
 								<th>제품 종류</th>
 								<th>소비전력(일)</th>
 								<th>평균 사용시간</th>
@@ -237,7 +237,7 @@
 						</thead>
 						<tbody>
 							<tr class="warning">
-								<th>1</th>
+								<th style="text-align: center;">1</th>
 								<td>
 									<select id="Kind" onclick="Power_Consumption()">
 										<option>선택</option>
@@ -249,13 +249,63 @@
 										<option>기타</option>
 									</select>
 								</td>
-								<td><input id="Power_Consumption" size="2" value="0">W
+								<td><input id="Power_Consumption" size="4" value="0"">W
 								<td><input id="time" size="2" value="0" onkeyup="average_time()">시간</td>
 								<td>
 									<div id="month_time">kWh</div>
 								</td>
 								<td>
 									<div id="total">원</div>
+								</td>
+							</tr>
+							<tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-project bg-light" data-section="projects">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">대기전력 확인하기</span>
+					<h2 class="mb-4">Our Projects</h2>
+					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+				</div>
+			</div>
+			<div class="row no-gutters block-9">
+				<!-- <div class="col-md-6 order-md-last d-flex"> -->
+				<!-- <div class="container"> -->
+
+				<body>
+					<table class="table table-bordered" style="text-align: center;"">
+						<thead>
+							<tr class="warning">
+								<th style="width: 100px;">순번\종류</th>
+								<th>제품 종류</th>
+								<th>소비전력(일)</th>
+								<th>평균 사용시간</th>
+								<th>월간 사용량</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="warning">
+								<th>1</th>
+								<td>
+									<select id="Standby_Kind" onclick="Power_standby()">
+										<option>선택</option>
+										<option>TV</option>
+										<option>에어컨</option>
+										<option>냉장고</option>
+										<option>컴퓨터</option>
+										<option>세탁기</option>
+										<option>기타</option>
+									</select>
+								</td>
+								<td><input id="Power_Standby" size="4" value="0">W
+								<td><input id="time_standby" size="2" value="0" onkeyup="average_time_standby()">시간</td>
+								<td>
+									<div id="month_time_standby">W</div>
 								</td>
 							</tr>
 							<tr>
@@ -356,14 +406,16 @@
 							<th>☆</th>
 							<td><input id="month_usage" size="2" value="0" onkeyup="occurr()"> kWh</td>
 							<td>
-								<div id="co2occurr">g</div>
+								<div id="co2occurr">kg</div>
 							</td>
 						</tr>
 						<tr>
 					</tbody>
 				</table>
-			</div>
+					<img src="images/Pngtree.png" style="height: 550px;width: 450px;">
+					<span id="tree"></span>
 		</div>
+
 	</section>
 
 	<section class="ftco-section bg-light" data-section="blog">
@@ -390,7 +442,7 @@
 										</ul>
 								 </fieldset>
 							</form> -->
-						<table border="1px" id="table1">
+						<table id="table1">
 							<tr>
 								<th>순번</th>
 								<th>제목</th>

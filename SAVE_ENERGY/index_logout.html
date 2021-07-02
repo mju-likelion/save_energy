@@ -37,17 +37,15 @@
 					<span class="oi oi-menu"></span> Menu
 				</button>
 
-				<div class="collapse navbar-collapse" id="ftco-nav">
-					<ul class="navbar-nav nav ml-auto">
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>메인</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>소비/대기전력</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="team"><span>전기</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="testimony"><span>이산화탄소</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="blog"><span>커뮤니티</span></a></li>
-						<li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
-					</ul>
-				</div>
-				<span class="nav-item cta"><a href="index.html" class="nav-link">로그아웃</a></span>
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>메인</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>소비/대기전력</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="team"><span>전기</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="testimony"><span>이산화탄소</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="blog"><span>커뮤니티</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
+				</ul>
 			</div>
 		</nav>
 		<section class="hero-wrap js-fullheight backimage" style="background-image: url('images/background_home_light.jpg');"
@@ -112,20 +110,52 @@
 			</div>
 		</section>
 
-		</section>
-		<section class="ftco-section ftco-project bg-light" data-section="projects">
+		<section class="ftco-section ftco-project bg-light" data-section="projects" style="padding: 0;">
 			<div class="container">
 				<div class="row justify-content-center mb-5 pb-3">
 					<div class="col-md-7 heading-section text-center ftco-animate">
 						<span class="subheading">소비전력 확인하기</span>
-						<h2 class="mb-4">Our Projects</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+						<h2 class="mb-4">소비전력 계산기</h2>
+						<p><table class="table table-bordered">
+							<thead>
+							<tr>
+								<th rowspan="3" style="line-height: 150px;">계절구분</th>
+								<th rowspan="3" style="line-height: 150px;">기본요금(원/kW)</th>
+								<th colspan="4">전력량요금(원kWh)</th>
+							</tr>
+							<tr>
+								<td colspan="2">평일</td>
+								<td colspan="2">주말</td>
+							</tr>
+							<tr>
+								<td>수요<br>(09~21)</td>
+								<td>기타<br>(21~09)</td>
+								<td>토요일<br>수요</td>
+								<td>그 외</td>
+							</tr>
+						</thead>
+						<tr>
+							<td>춘추계</td>
+							<td rowspan="2" style="line-height: 100px;">4,310</td>
+							<td>140.7</td>
+							<td>94.1</td>
+							<td colspan="2">94.1</td>
+						</tr>
+						<tr>
+							<td>동하계</td>
+							<td>188.7</td>
+							<td>107.1</td>
+							<td colspan="2">107.0</td>
+						</tr>
+						</table>
+						<div>※ 동하계 : 11~2월 및 6~8월 / 춘추계 : 기타</div>
+					</p>
 					</div>
 				</div>
 				<div class="row no-gutters block-9">
 					<!-- <div class="col-md-6 order-md-last d-flex"> -->
 					<!-- <div class="container"> -->
-
+	
 					<body>
 						<table class="table table-bordered">
 							<thead>
@@ -152,8 +182,8 @@
 											<option>기타</option>
 										</select>
 									</td>
-									<td><input id="Power_Consumption" size="4" value="0"">W
-								<td><input id=" time" size="2" value="0" onkeyup="average_time()">시간</td>
+									<td><input id="Power_Consumption" size="4" value="0">W
+									<td><input id="time" size="2" value="0" onkeyup="average_time()">시간</td>
 									<td>
 										<div id="month_time">kWh</div>
 									</td>
@@ -172,24 +202,25 @@
 				<div class="row justify-content-center mb-5 pb-3">
 					<div class="col-md-7 heading-section text-center ftco-animate">
 						<span class="subheading">대기전력 확인하기</span>
-						<h2 class="mb-4">Our Projects</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+						<h2 class="mb-4">대기전력 계산기</h2>
+						<p>대기전력이란 바로 전원을 끈 상태에서도 전기제품이 소비하는 전력을 말합니다.</p>
+						<p>가정에서 대기전력으로 인하여 손실되는 전력이 대략 6~11%로 추정되고 있습니다.</p>
 					</div>
 				</div>
 				<div class="row no-gutters block-9">
 					<!-- <div class="col-md-6 order-md-last d-flex"> -->
 					<!-- <div class="container"> -->
-
+	
 					<body>
 						<table class="table table-bordered" style="text-align: center;"">
-						<thead>
-							<tr class=" warning">
-							<th style="width: 100px;">순번\종류</th>
-							<th>제품 종류</th>
-							<th>소비전력(일)</th>
-							<th>평균 사용시간</th>
-							<th>월간 사용량</th>
-							</tr>
+							<thead>
+								<tr class="warning">
+									<th style="width: 100px;">순번\종류</th>
+									<th>제품 종류</th>
+									<th>소비전력(일)</th>
+									<th>평균 사용시간</th>
+									<th>월간 사용량</th>
+								</tr>
 							</thead>
 							<tbody>
 								<tr class="warning">

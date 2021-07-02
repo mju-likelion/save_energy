@@ -11,8 +11,9 @@ window.onload = function () {
   var hour = new Date().getHours();
   var minute = new Date().getMinutes();
   if (month == 7 && day == 2) {
-    // document.body.style.backgroundImage = 'url("../images/background_home_dark.jpg")';
-    document.getElementById("backimage").backgroundImage = 'url("../images/background_home_dark.jpg")';
+    // document.body.style.backgroundColor= 'black';
+    // document.body.style.backgroundImage = 'url("images/background_home_dark.jpg")';
+    document.getElementsByClassName("backimage").style.backgroundImage = 'url("images/background_home_dark.jpg")';
   }
   if (hour == 16 && minute == 22) {
     document.getElementById("event_text").innerHTML = "현재 시간은 4시 22분입니다.<br> 4월 22일은 지구의 날입니다!"

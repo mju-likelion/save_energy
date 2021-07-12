@@ -1,0 +1,9 @@
+  form{
+    /* height: 500px; */
+    width: 600px;
+    display: block;
+  }
+  #main{
+    display: flex;
+    justify-content: space-around;
+  }

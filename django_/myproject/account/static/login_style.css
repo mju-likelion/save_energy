@@ -1,0 +1,24 @@
+  .login {
+    padding: 100px;
+    text-align: center;
+  }
+
+  .login a {
+    font-weight: bold;
+    color: #000000;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  #user img {
+    clip-path: circle(50% at 50% 50%);
+  }
+
+  .login form {
+    display: inline-block;
+    width: 800px;
+  }
+
+  #signUp_form {
+    width: 500px;
+  }

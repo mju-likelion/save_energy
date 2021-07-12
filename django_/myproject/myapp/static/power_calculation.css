@@ -1,0 +1,121 @@
+.parent{
+  width: 100%;
+  margin: 10px auto;
+  display: flex;
+}
+
+.January {
+  text-align: center;
+  /* border: 1px solid red; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.February{
+  text-align: center;
+  /* border: 1px solid green; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.March{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.April{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.May{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.June{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.July{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.August{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.September{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.October{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.November{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.December{
+  text-align: center;
+  /* border: 1px solid blue; */
+  flex:1;
+  margin: 0px 0.5%;
+  width:8%;
+  box-sizing: border-box;
+}
+
+.input{
+  margin: 0px 0px 20px 30px;
+}
+
+.btn{
+  margin: 10px;
+}

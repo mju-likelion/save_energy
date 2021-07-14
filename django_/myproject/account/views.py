@@ -7,9 +7,9 @@ def signup(request):
   # signup 으로 POST 요청이 왔을 때, 새로운 유저를 만드는 절차를 밟는다.
   if request.method == 'POST':
     # password와 confirm에 입력된 값이 같다면
-    if request.POST['password'] == request.POST['confirm']:
+    if request.POST['password1'] == request.POST['password2']:
       # user 객체를 새로 생성
-      user = User.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+      user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
       # 로그인 한다
       auth.login(request, user)
       return redirect('/')

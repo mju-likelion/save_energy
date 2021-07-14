@@ -1,3 +1,4 @@
+{% extends 'home.html' %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,19 +59,19 @@
       {% csrf_token %}
       <div class="form-group">
         <p> ID(Email 형식)  * : 
-          <input type="text"  id="signUp_form" v-model="ID" placeholder="ID를 입력하세요.">
+          <input name = "id" type="text"  id="signUp_form" v-model="ID" placeholder="ID를 입력하세요.">
         </p>
 
         <p> Password * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
-          <input type="password"  id="signUp_form" v-model="PW" placeholder="ID를 입력하세요.">
+          <input name = "password1" type="password"  id="signUp_form" v-model="PW" placeholder="ID를 입력하세요.">
         </p>
 
         <p> Password 확인 * :
-          <input type="password"  id="signUp_form" v-model="PW" placeholder="ID를 입력하세요.">
+          <input name = "password2" type="password"  id="signUp_form" v-model="PW" placeholder="ID를 입력하세요.">
         </p>
         
         <p> 닉네임&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
-          <input type="text"  id="signUp_form" placeholder="ID를 입력하세요.">
+          <input name = "username" type="text"  id="signUp_form" placeholder="ID를 입력하세요.">
         </p>
         <br><br>
         <button onclick="alert('회원가입이 완료되었습니다.')"><a href="{%url 'home' %}">Sign Up <br></a></button>

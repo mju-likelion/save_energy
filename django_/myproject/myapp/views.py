@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import Community
 # Create your views here.
 
 def home(request):
@@ -8,8 +8,10 @@ def home(request):
 def introduce(request):
   return render(request, 'introduce.html')
 
+# link community page
 def community(request):
-  return render(request, 'community.html')
+  communitys = Community.objects   # query set
+  return render(request, 'community.html', {'communitys' : communitys})
 
 def support(request):
   return render(request, 'support.html')

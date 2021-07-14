@@ -3,13 +3,14 @@
 
 <head>
   <title>SAVE_ENERGY</title>
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="{% static 'open-iconic-bootstrap.min.css' %}" />
-  <link rel="stylesheet" type="text/css" href="{% static 'animate.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'open-iconic-bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{%static 'animate.css' %}" />
 
   <link rel="stylesheet" type="text/css" href="{% static 'owl.carousel.min.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'owl.theme.default.min.css' %}" />
@@ -36,8 +37,8 @@
       <div class="row no-gutters slider-text align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
           <h1 class="mb-3 bread">Login</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="{% 'home' %}">Home <i
-                  class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{% 'login' %}">Login <i
+          <p class="breadcrumbs"><span class="mr-2"><a href="{%url 'home' %}">Home <i
+                  class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{%url 'login' %}">Login <i
                   class="ion-ios-arrow-forward"></i></a></span></p>
         </div>
       </div>
@@ -47,7 +48,7 @@
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="{% 'home' %}"><img src='static/images/earth.png' alt='logo' style="width: 100px;"><span
+      <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
           id="clock"></span></a>
       <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
         data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,7 +66,7 @@
                <li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
             </ul>
          </div> -->
-      <span class="nav-item cta"><a href="{% 'login' %}" class="nav-link">로그인</a></span>
+      <span class="nav-item cta"><a href="{%url 'login' %}" class="nav-link">로그인</a></span>
     </div>
   </nav>
 
@@ -104,11 +105,11 @@
                </div>
             </div> -->
   <div class="login">
-    <form method="POST" action="{% url 'login' %}">
+    <form method="POST" action="{%url 'login' %}">
       <br> <br>
       <fieldset style="width:150">
         <legend>로그인 정보 입력</legend> <br> <br>
-        <div id="user"><img src="static/images/user.png" alt="사용자"></div> <br>
+        <div id="user"><img src="/static/images/user.png" alt="사용자"></div> <br>
         <p> USERNAME :
           <input type="text" id="ID" v-model="ID" placeholder="ID를 입력하세요.">
         <p> PASSWORD :
@@ -116,8 +117,8 @@
         </p>
         <br><input type="checkbox" v-model="chkid">
         ID기억하기 <br><br>
-        <button><a href="{% 'login' %}">로그인 <br></a></button>
-        <button><a href="{% 'signup' %}">회원가입 <br></a></button>
+        <button><a href="{%url 'login' %}">로그인 <br></a></button>
+        <button><a href="{%url 'signup' %}">회원가입 <br></a></button>
         <br><br>
         <button><a href="#">ID찾기 <br></a></button>
         <button><a href="#">PW찾기 <br></a></button>

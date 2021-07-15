@@ -1,5 +1,4 @@
-{% extends 'home.html' %}
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -8,8 +7,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
-    <!-- 차트생성 cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'open-iconic-bootstrap.min.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'animate.css' %}"/>
   
@@ -79,7 +76,6 @@
     </form>
   </div>
   
-   <!-- loader -->
    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
          <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
          <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
@@ -88,32 +84,46 @@
 
 
       <script src="{% static 'jquery.min.js' %}"></script>
-      <!--필요-->
       <script src="{% static 'jquery-migrate-3.0.1.min.js' %}"></script>
-      <!--필요-->
       <script src="{% static 'popper.min.js' %}"></script>
-      <!--모름-->
       <script src="{% static 'bootstrap.min.js' %}"></script>
-      <!--필요-->
-      <!-- <script src="js/jquery.easing.1.3.js"></script> 모름 -->
       <script src="{% static 'jquery.waypoints.min.js' %}"></script>
-      <!--필요-->
       <script src="{% static 'jquery.stellar.min.js' %}"></script>
-      <!--필요!-->
       <script src="{% static 'owl.carousel.min.js' %}"></script>
-      <!--필요 //후원하기 -->
       <script src="{% static 'jquery.magnific-popup.min.js' %}"></script>
-      <!--필요 // 후원하기 사진확대후 이동-->
       <script src="{% static 'aos.js' %}"></script>
-      <!--필요-->
       <script src="{% static 'jquery.animateNumber.min.js' %}"></script>
-      <!--필요-->
       <script src="{% static 'scrollax.min.js' %}"></script>
-      <!--필요!-->
     
       <script src="{% static 'main.js' %}"></script>
       <script src="{% static 'clock.js' %}"></script>
       <script src="{% static 'power_calculation.js' %}"></script>
       <script src="{% static 'drawChart.js' %}"></script>
       <script src="{% static 'co2.js' %}"></script>
-</body>
+</body> -->
+
+
+
+
+{% block contents %}
+<div class="container">
+  <h1>Sign Up!</h1>
+
+  <form method = "POST" action="{%url 'signup'%}"> 
+    {% csrf_token %}
+    Username:
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    Password:
+    <br>
+    <input name="password1" type="password" value="">
+    <br>
+    Confirm Password:
+    <br>
+    <input name="password2" type="password" value="">
+    <br><br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+  </form>
+</div>
+{% endblock %}

@@ -11,7 +11,6 @@ urlpatterns = [
     #path('.myapp/<int:community_id>', myapp.views.detail, name="detail"),  # community_detail page 연결
     path('introduce/', myapp.views.introduce, name="introduce"),
     path('support/', myapp.views.support, name="support"),
-
     # path('login/', account.views.login, name='login'),
     # path('signup/', account.views.signup, name='signup'),
     # path('logout/', account.views.logout, name='logout'),

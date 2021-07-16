@@ -86,3 +86,8 @@ a {
   line-height: 500px;
 
 }
+.login{
+  display: flex;
+  justify-content: center;
+  padding: 100px;
+}

@@ -40,7 +40,7 @@ def login(request):
       return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
   else:
-    return render(request, 'home.html')
+    return render(request, 'login.html')
 
 # 로그 아웃
 def logout(request):

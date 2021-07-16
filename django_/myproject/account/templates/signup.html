@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -52,7 +52,7 @@
   </nav>
   <div class="login">
     <h3 class="mb-3">회원 가입</h3>
-    <form method="POST" action="{%url 'signup' %}" class="p-5 bg-light">
+    <!-- <form method="POST" action="{%url 'signup' %}" class="p-5 bg-light">
       {% csrf_token %}
       <div class="form-group">
         <p> ID(Email 형식)  * : 
@@ -70,8 +70,24 @@
         <p> 닉네임&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
           <input name = "username" type="text"  id="signUp_form" placeholder="ID를 입력하세요.">
         </p>
-        <br><br>
-        <button onclick="alert('회원가입이 완료되었습니다.')"><a href="{%url 'home' %}">Sign Up <br></a></button>
+        <br><br> -->
+        <form method = "POST" action="{%url 'signup'%}"> 
+          {% csrf_token %}
+          Username:
+          <br>
+          <input name="username" type="text" value="">
+          <br>
+          Password:
+          <br>
+          <input name="password1" type="password" value="">
+          <br>
+          Confirm Password:
+          <br>
+          <input name="password2" type="password" value="">
+          <br><br>
+          <input class="btn btn-primary" type="submit" value="Sign Up!">
+        </form>
+        <!-- <button onclick="alert('회원가입이 완료되었습니다.')"><a href="{%url 'home' %}">Sign Up <br></a></button> -->
       </div>
     </form>
   </div>
@@ -100,12 +116,12 @@
       <script src="{% static 'power_calculation.js' %}"></script>
       <script src="{% static 'drawChart.js' %}"></script>
       <script src="{% static 'co2.js' %}"></script>
-</body> -->
+</body>
 
 
 
 
-{% block contents %}
+<!-- {% block contents %}
 <div class="container">
   <h1>Sign Up!</h1>
 
@@ -126,4 +142,4 @@
     <input class="btn btn-primary" type="submit" value="Sign Up!">
   </form>
 </div>
-{% endblock %}
+{% endblock %} -->

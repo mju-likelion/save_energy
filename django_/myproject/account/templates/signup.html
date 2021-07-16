@@ -32,7 +32,7 @@
       <div class="row no-gutters slider-text align-items-end justify-content-center">
         <div class="col-md-9 ftco-animate pb-5 text-center">
           <h1 class="mb-3 bread">Sign Up</h1>
-          <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{% 'login' %}">Login <i class="ion-ios-arrow-forward"></i></a></span><span class="mr-2"><a href="{% 'signup' %}">Sign Up<i class="ion-ios-arrow-forward"></i></a></span></p>
+          <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{%url 'login' %}">Login <i class="ion-ios-arrow-forward"></i></a></span><span class="mr-2"><a href="{%url 'signup' %}">Sign Up<i class="ion-ios-arrow-forward"></i></a></span></p>
         </div>
       </div>
     </div>
@@ -52,7 +52,7 @@
   </nav>
   <div class="login">
     <h3 class="mb-3">회원 가입</h3>
-    <form method="POST" action="{% url 'signup' %}" class="p-5 bg-light">
+    <form method="POST" action="{%url 'signup' %}" class="p-5 bg-light">
       {% csrf_token %}
       <div class="form-group">
         <p> ID(Email 형식)  * : 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
@@ -14,9 +14,9 @@ def signup(request):
       user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
       # 로그인 한다
       auth.login(request, user)
-      return redirect('/home')
+      return redirect('/')
       # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
-    return render(request, 'signup.html')
+  return render(request, 'signup.html')
 
 
 def login(request):
@@ -40,14 +40,14 @@ def login(request):
       return render(request, 'login.html', {'error' : 'username or password is incorrect.'})
     # login으로 GET 요청이 들어왔을때, 로그인 화면을 띄워준다.
   else:
-    return render(request, 'login.html')
+    return render(request, 'home.html')
 
 # 로그 아웃
 def logout(request):
   # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
   if request.method == 'POST':
     auth.logout(request)
-    redirect('/home')
+    redirect('/')
 
 # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
   return render(request, 'login.html')

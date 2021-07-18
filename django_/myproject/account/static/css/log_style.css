@@ -26,14 +26,15 @@ input {
   background:#2e9e5b;
   outline: 0;
   border: 0;
-  width:80px;
-  border-radius: .5rem;
+  width:100px;
+  text-align: center;
 }
 button {
   background:#2e9e5b;
   outline: 0;
   border: 0;
-  border-radius: .5rem;
+  width:100px;
+  text-align: center;
 }
 button a,
 button a:hover{

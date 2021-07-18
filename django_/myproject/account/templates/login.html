@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="{% static 'css/chart.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
   <link rel="stylesheet" type="text/css" href="{% static 'css/community_style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login_style.css' %}" />
 </head>
 
 <body>
@@ -100,12 +101,11 @@
                  </div>
               </div>
            </div> -->
-           <div class="login">
+           <div>
              <form method="POST" action="{%url 'login' %}">
                 {%csrf_token%}
-               <br> <br>
-               <fieldset style="width:150" class="login">
-                 <legend>로그인 정보 입력</legend> <br> <br>
+                  <fieldset class="login">
+                  <legend>로그인 정보 입력</legend> 
                  <div id="user"><img src="/static/images/user.png" alt="사용자"></div> <br>
                  <p> USERNAME :
                    <input type="text" name="username" placeholder="ID를 입력하세요.">
@@ -119,6 +119,8 @@
                  <br><br>
                  <button><a href="#">ID찾기 <br></a></button>
                  <button><a href="#">PW찾기 <br></a></button>
+               </div>
+               </div>
                </fieldset>
              </form>
            </div>

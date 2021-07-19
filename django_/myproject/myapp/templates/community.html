@@ -73,15 +73,17 @@
           
           <br>
           <h3 class="mb-3 mt-5"># 글 목록</h3>
+          <h1>hello</h1>
+          {% for myapp in communitys.all %}
+            <h1>{{myapp.title}}</h1>
+            <p>{{myapp.date}}</p>
+            <p>{{myapp.body}}</p>
+          {% endfor %}
           
           <div id="table1">
-            {% for myapp in communitys.all %}
-              <h1>{{myapp.title}}</h1>
-              <p>{{myapp.date}}</p>
-              <p>{{myapp.body}}</p>
-            {% endfor %}
+            
 
-            <a href="{%url 'detail'%}"><img id="community_table" src="/static/images/community.png" width="700px"></a>
+            <!-- <a href="{%url 'detail'%}"><img id="community_table" src="/static/images/community.png" width="700px"></a> -->
           </div>
           <br>
           <div id="btn">

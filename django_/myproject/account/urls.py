@@ -6,4 +6,5 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('logout/', views.logout, name='logout'),
     path('community/', views.community, name='community'),
+    # path('community/<int:pk>', views.community, name='community_detail'),
 ]

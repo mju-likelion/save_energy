@@ -68,10 +68,10 @@
           <h3 class="mb-3 mt-5"># 글 목록</h3>
           
           <div class="container">
-            {%for myapp in community.all%}
-              <h1>{{myapp.title}}</h1>
-              <p>{{myapp.date}}</p>
-              <p>{{myapp.body}}</p>
+            {%for account in communitys.all%}
+              <h1>{{account.title}}</h1>
+              <p>{{account.date}}</p>
+              <p>{{account.body}}</p>
             {%endfor%}
           </div>
 

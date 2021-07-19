@@ -9,9 +9,16 @@ def introduce(request):
   return render(request, 'introduce.html')
 
 # link community page
+# def community(request):
+#   communitys = Community.objects   # query set
+#   return render(request, 'community.html', {'communitys' : communitys})
+
 def community(request):
-  communitys = Community.objects   # query set
-  return render(request, 'community.html', {'communitys' : communitys})
+  communitys = Community.objects
+  context = {
+    "communitys" : communitys
+  }
+  return render(request, 'community.html',context=context)
 
 def detail(request, community_id) :
   details = get_object_or_404(Community, pk=community_id)

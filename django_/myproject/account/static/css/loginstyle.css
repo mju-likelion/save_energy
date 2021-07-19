@@ -21,24 +21,24 @@ legend {
   width: 800px;
 }
 input {
-  width:230px
+  width:230px;
+  /* color: #fff; */
 }
-.loginbtn{
-  background:#2e9e5b(215, 146, 255);
+.loginbtn {
+  background:#2e9e5b;
   outline: 0;
   border: 0;
-  width:80px
+  width:100px;
+  text-align: center;
 }
-
 button {
-  background:#2e9e5b(215, 146, 255);
+  background:#2e9e5b;
   outline: 0;
   border: 0;
+  width:100px;
+  text-align: center;
 }
 button a,
 button a:hover{
-  color: black;
-}
-.np{
-  color: black;
+  color: #fff;
 }

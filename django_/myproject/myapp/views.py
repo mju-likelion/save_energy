@@ -17,5 +17,9 @@ def detail(request, community_id) :
   details = get_object_or_404(Community, pk=community_id)
   return render(request, 'community_detail.html', {'details' : details})
 
+def write(request, community_id) :
+  writes = get_object_or_404(Community, pk=community_id)
+  return render(request, 'community_write.html', {'writes' : writes})
+
 def support(request):
   return render(request, 'support.html')

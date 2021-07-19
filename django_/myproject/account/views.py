@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from .models import Community
 
 # 회원가입
 def signup(request):
@@ -45,6 +46,20 @@ def login(request):
 # 로그 아웃
 def logout(request):
   # logout으로 POST 요청이 들어왔을 때, 로그아웃 절차를 밟는다.
+<<<<<<< HEAD
   auth.logout(request)
   return redirect('/')
 # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
+=======
+  if request.method == 'POST':
+    auth.logout(request)
+    redirect('/')
+
+# logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
+  return render(request, 'login.html')
+
+
+def community(request):
+  communitys = Community.objects   # query set
+  return render(request, 'community.html', {'communitys' : communitys})
+>>>>>>> 3fc2f60ed48ffa96ee11cdbea2e4b98425672ad4

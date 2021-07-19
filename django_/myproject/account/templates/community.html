@@ -50,17 +50,7 @@
             data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
          </button>
-<<<<<<< HEAD
-         {% if user.is_authenticated %}
-         <form method="POST" action="{%url 'logout' %}">
-           <span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
-         </form>
-         {% else %}  
-         <a class="nav-link" href="{% url 'login' %}">로그인</a>
-         {% endif %}
-=======
       <span class="nav-item cta"><a href="{%url 'home' %}" class="nav-link">로그아웃</a></span>
->>>>>>> 3fc2f60ed48ffa96ee11cdbea2e4b98425672ad4
       </div>
    </nav>
 
@@ -85,7 +75,7 @@
             {%endfor%}
           </div>
 
-          <!-- <div id="table1">
+          <div id="table1">
             
 
             <a href="{%url 'detail'%}"><img id="community_table" src="/static/images/community.png" width="700px"></a>
@@ -94,7 +84,7 @@
           <div id="btn">
             <p class="mb-0"><a href="{%url 'write' %}" class="btn btn-secondary">글쓰기<span
                   class="ion-ios-arrow-round-forward"></span></a></p>
-          </div> -->
+          </div>
 
           <!-- <div class="pt-5 mt-5">        
             <div class="comment-form-wrap pt-5">
@@ -174,9 +164,9 @@
       <script src="{% static 'js/scrollax.min.js' %}"></script>
       <!--필요!-->
     
-      <script src="{% static 'js/main.js' %}"></script>
-      <script src="{% static 'js/clock.js' %}"></script>
-      <script src="{% static 'js/power_calculation.js' %}"></script>
-      <script src="{% static 'js/drawChart.js' %}"></script>
-      <script src="{% static 'js/co2.js' %}"></script>
+      <script src="{% static 'main.js' %}"></script>
+      <script src="{% static 'clock.js' %}"></script>
+      <script src="{% static 'power_calculation.js' %}"></script>
+      <script src="{% static 'drawChart.js' %}"></script>
+      <script src="{% static 'co2.js' %}"></script>
 </body>

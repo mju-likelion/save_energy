@@ -55,6 +55,13 @@ def community(request):
   communitys = Community.objects   # query set
   return render(request, 'community.html', {'communitys' : communitys})
 
+def mypage(request):
+  if request.user.is_authenticated: 
+  #로그인 한 상태라면 mypage.html로 보내기.
+    return render(request, 'mypage.html')
+  else:
+    return render(request, 'login.html')
+
 # class Community(ListView):
 #   model = Community
 #   context_object_name = 'communitys'

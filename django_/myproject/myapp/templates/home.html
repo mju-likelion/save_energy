@@ -43,12 +43,12 @@
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>메인</span></a></li>
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>소비/대기전력</span></a></li>
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="team"><span>차트 관리</span></a></li>
-					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="testimony"><span>이산화탄소</span></a></li>
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="blog"><span>커뮤니티</span></a></li>
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
 				</ul>
 			</div>
 						{% if user.is_authenticated %}
+						<span class="nav-item cta"><a href="{%url 'mypage' %}" class="nav-link">마이페이지</a></span>
 						<form method="POST" action="{%url 'logout' %}">
 							<span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
 						</form>
@@ -321,7 +321,11 @@
 				<div class="December">
 					<p class="text-center">December</p>
 					<input style="text-align: center;" type="text" size="4" id="inputDec" value="0">
-					<button type="button" class="btn" onclick="cha()">적용하기</button>
+					{% if user.is_authenticated %}
+						<button type="button" class="btn" onclick="cha()">적용하기</button>
+					{% else %}  
+						<button type="button" class="btn" onclick="alert('로그인을 해주세요')">적용하기</button>
+					{% endif %}
 				</div>
 			</div>
 

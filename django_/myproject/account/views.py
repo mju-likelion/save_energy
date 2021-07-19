@@ -49,3 +49,6 @@ def logout(request):
   auth.logout(request)
   return redirect('/')
 # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
+def community(request):
+  communitys = Community.objects   # query set
+  return render(request, 'community.html', {'communitys' : communitys})

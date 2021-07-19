@@ -50,7 +50,13 @@
             data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
          </button>
-      <span class="nav-item cta"><a href="{%url 'index' %}" class="nav-link">로그아웃</a></span>
+         {% if user.is_authenticated %}
+         <form method="POST" action="{%url 'logout' %}">
+           <span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
+         </form>
+         {% else %}  
+         <a class="nav-link" href="{% url 'login' %}">로그인</a>
+         {% endif %}
       </div>
    </nav>
 

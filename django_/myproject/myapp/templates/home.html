@@ -48,7 +48,13 @@
 					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
 				</ul>
 			</div>
-			<span class="nav-item cta"><a href="{%url 'login' %}" class="nav-link">로그인</a></span>
+						{% if user.is_authenticated %}
+						<form method="POST" action="{%url 'logout' %}">
+							<span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
+						</form>
+						{% else %}  
+						<a class="nav-link" href="{% url 'login' %}">로그인</a>
+						{% endif %}
 		</div>
 	</nav>
 

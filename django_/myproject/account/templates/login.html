@@ -51,8 +51,6 @@
            data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
            <span class="oi oi-menu"></span> Menu
         </button>
-
-     <span class="nav-item cta"><a href="{%url 'home' %}"} class="nav-link">로그인</a></span>
      </div>
   </nav>
            <br>
@@ -63,9 +61,9 @@
                   <legend>로그인 정보 입력</legend> 
                  <div id="user"><img src="/static/images/user.png" alt="사용자"> </div> <br>
                  <p> USERNAME :
-                   <input type="text" name="username" placeholder="ID를 입력하세요.">
+                   <input type="text" name="username" placeholder="ID를 입력하세요." class="np">
                  <p> PASSWORD :
-                   <input type="password" name='password' placeholder="PW를 입력하세요.">
+                   <input type="password" name='password' placeholder="PW를 입력하세요." class="np">
                  </p>
                  <br><input class = "loginbtn btn btn-primary" type="submit" value="로그인">
                  <!-- ID기억하기 <br><br> -->

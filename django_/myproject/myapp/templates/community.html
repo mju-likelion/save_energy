@@ -57,6 +57,7 @@
          {% else %}  
          <a class="nav-link" href="{% url 'login' %}">로그인</a>
          {% endif %}
+
       </div>
    </nav>
 
@@ -73,16 +74,12 @@
           <br>
           <h3 class="mb-3 mt-5"># 글 목록</h3>
           
-          <div class="container">
-            {%for myapp in community.all%}
+          <div id="table1">
+            {% for myapp in communitys.all %}
               <h1>{{myapp.title}}</h1>
               <p>{{myapp.date}}</p>
               <p>{{myapp.body}}</p>
-            {%endfor%}
-          </div>
-
-          <!-- <div id="table1">
-            
+            {% endfor %}
 
             <a href="{%url 'detail'%}"><img id="community_table" src="/static/images/community.png" width="700px"></a>
           </div>
@@ -90,7 +87,7 @@
           <div id="btn">
             <p class="mb-0"><a href="{%url 'write' %}" class="btn btn-secondary">글쓰기<span
                   class="ion-ios-arrow-round-forward"></span></a></p>
-          </div> -->
+          </div>
 
           <!-- <div class="pt-5 mt-5">        
             <div class="comment-form-wrap pt-5">

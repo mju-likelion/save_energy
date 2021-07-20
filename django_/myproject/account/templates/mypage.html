@@ -68,10 +68,11 @@
         <div class="col-lg-8 order-lg-last ftco-animate">
           {% if user.is_authenticated %}
           <h2 class="mb-3">{{user}}님 환영합니다.</h2>
+          <p>이메일 : {{user.email}}</p>
           {% else %}
           <p>로그인하세요</p>
           {% endif %}
-          <p>MY PAGE</p>
+
 
 
         </div> <!-- .col-md-8 -->

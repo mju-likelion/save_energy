@@ -16,7 +16,7 @@ def signup(request):
     # password와 confirm에 입력된 값이 같다면
     if request.POST['password1'] == request.POST['password2']:
       # user 객체를 새로 생성
-      user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'])
+      user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'], email = request.POST['id'])
       # 로그인 한다
       auth.login(request, user)
       return redirect('/')

@@ -6,6 +6,7 @@ from django.urls import reverse
 
 # Create your models here.
 class Community(models.Model) :
+  author = models.CharField(max_length=10, default='') # 작성자
   title = models.CharField(verbose_name='TITLE',max_length=200) # 제목을 가져온다
   date = models.DateTimeField('DATE PUBLISHED', default=timezone.now) # 날짜/시간을 가져온다
   body = models.TextField('CONTENT', default='') # 본문 내용을 가져온다

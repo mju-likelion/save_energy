@@ -74,22 +74,55 @@
           <br>
           
           <h3 class="mb-3 mt-5"># 글 목록</h3>
-          {% for myapp in communitys.all %}
-            <h1>{{myapp.title}}</h1>
-            <p>{{myapp.date}}</p>
-            <p>{{myapp.body}}</p>
-          {% endfor %}
+          
+          <div class="container">
+            <table class="table">
+                <thead class="thead-light">
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">작성일</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for myapp in communitys.all %}
+                <tr class="text-center">
+                    <th scope="row">
+                        <span>{{ board.id }}</span>
+                    </th>
+                    <td>
+                        <a href="/post/{{ board.id }}">
+                            <span>{{myapp.title}}</span>
+                        </a>
+                    </td>
+                    <td>
+                        <span>{{ myapp.author }}</span>
+                    </td>
+                    <td>
+                        <span>{{ myapp.mod_date | date:"Y-m-d h:i" }}</span>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="row">
+                <div class="col-auto mr-auto"></div>
+                <div class="col-auto">
+                    <a class="btn btn-secondary" href="{%url 'write' %}" role="button">글쓰기</a>
+                </div>
+            </div>
+          </div>
 
           <div id="table1">
             
 
-            <!-- <a href="{%url 'detail'%}"><img id="community_table" src="/static/images/community.png" width="700px"></a> -->
           </div>
           <br>
-          <div id="btn">
+          <!-- <div id="btn">
             <p class="mb-0"><a href="{%url 'write' %}" class="btn btn-secondary">글쓰기<span
                   class="ion-ios-arrow-round-forward"></span></a></p>
-          </div>
+          </div> -->
 
           <!-- <div class="pt-5 mt-5">        
             <div class="comment-form-wrap pt-5">

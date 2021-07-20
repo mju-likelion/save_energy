@@ -69,9 +69,9 @@
           
           <div class="container">
             {%for account in communitys.all%}
-              <h1>{{account.title}}</h1>
-              <p>{{account.date}}</p>
-              <p>{{account.body}}</p>
+              <h3><a href="{{account.get_absolute_url}}">{{account.title}}</a></h3>
+              <p>{{account.mod_date|date:"N d, Y"}}</p>
+              <!-- <p>{{account.body}}</p> -->
             {%endfor%}
           </div>
 

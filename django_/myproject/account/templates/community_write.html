@@ -29,7 +29,7 @@
 
 <body>
   <!-- 헤더 배경 -->
-  <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('/static/images/background_login.jpg');"
+  <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('images/background_login.jpg');"
     data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -49,7 +49,7 @@
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+      <a class="navbar-brand" href="index.html"><img src="/static/images/earth.png' alt='logo' style="width: 100px;"><span
           id="clock"></span></a>
       <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
         data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,10 +77,10 @@
               <label for="name">작성자 *</label>
               <input type="text" class="form-control" id="name">
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
               <label for="email">작성 일자 *</label>
               <input type="email" class="form-control" id="email">
-            </div> -->
+            </div>
             <div class="form-group">
               <label for="website">제목</label>
               <input type="url" class="form-control" id="website">
@@ -91,7 +91,7 @@
               <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
             </div>
             <div class="form-group">
-              <button onclick="alert('글 등록이 완료되었습니다')"><a href="{%url 'community' %}">등록하기</a></button>
+              <button onclick="alert('글 등록이 완료되었습니다')"><a href="community.html">등록하기</a></button>
               <!-- <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary"> -->
             </div>
 
@@ -185,9 +185,9 @@
   <script src="{% static 'js/scrollax.min.js' %}"></script>
   <!--필요!-->
 
-  <script src="{% static 'js/main.js' %}"></script>
-  <script src="{% static 'js/clock.js' %}"></script>
-  <script src="{% static 'js/power_calculation.js' %}"></script>
-  <script src="{% static 'js/drawChart.js' %}"></script>
-  <script src="{% static 'js/co2.js' %}"></script>
+  <script src="{% static 'main.js' %}"></script>
+  <script src="{% static 'clock.js' %}"></script>
+  <script src="{% static 'power_calculation.js' %}"></script>
+  <script src="{% static 'drawChart.js' %}"></script>
+  <script src="{% static 'co2.js' %}"></script>
 </body>

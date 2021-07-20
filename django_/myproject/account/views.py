@@ -4,7 +4,10 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Community
-from django.views.generic import ListView, DetailView
+# from django.views.generic import ListView, DetailView
+# from django.views.generic.dates import ArchiveIndexView, DateDetailView, DayArchiveView, MonthArchiveView, TodayArchiveView, YearArchiveView
+
+# from django_.myproject.account import models
 
 # 회원가입
 def signup(request):
@@ -51,10 +54,15 @@ def logout(request):
   return redirect('/')
 # logout으로 GET 요청이 들어왔을 때, 로그인 화면을 띄워준다.
 
+# 커뮤니티
 def community(request):
   communitys = Community.objects   # query set
   return render(request, 'community.html', {'communitys' : communitys})
 
+def write(request) :
+  return render(request, 'community_write.html')
+
+# 마이페이지
 def mypage(request):
   context = {
     'user': request.user
@@ -72,8 +80,3 @@ def chart(request):
     return render(request, 'chart.html')
   else:
     return render(request, 'login.html')
-
-# class Community(ListView):
-#   model = Community
-#   context_object_name = 'communitys'
-#   paginate_by = 2

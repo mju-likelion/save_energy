@@ -56,9 +56,20 @@ def community(request):
   return render(request, 'community.html', {'communitys' : communitys})
 
 def mypage(request):
+  context = {
+    'user': request.user
+  }
+  return render(request, 'mypage.html', context)
+  # if request.user.is_authenticated: 
+  # #로그인 한 상태라면 mypage.html로 보내기.
+  #   return render(request, 'mypage.html')
+  # else:
+  #   return render(request, 'login.html')
+
+def chart(request):
   if request.user.is_authenticated: 
   #로그인 한 상태라면 mypage.html로 보내기.
-    return render(request, 'mypage.html')
+    return render(request, 'chart.html')
   else:
     return render(request, 'login.html')
 

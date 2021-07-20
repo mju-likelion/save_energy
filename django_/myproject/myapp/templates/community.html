@@ -89,10 +89,10 @@
                 {% for myapp in communitys.all %}
                 <tr class="text-center">
                     <th scope="row">
-                        <span>{{ board.id }}</span>
+                        <span>{{ myapp.id }}</span>
                     </th>
                     <td>
-                        <a href="/post/{{ board.id }}">
+                        <a href="/write/{{ myapp.id }}">
                             <span>{{myapp.title}}</span>
                         </a>
                     </td>

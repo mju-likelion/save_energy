@@ -62,6 +62,11 @@ def community(request):
 def write(request) :
   return render(request, 'community_write.html')
 
+def home(request):
+  homes = Community.objects
+  return render(request, 'home.html', {'homes' : homes})
+
+
 # 마이페이지
 def mypage(request):
   context = {

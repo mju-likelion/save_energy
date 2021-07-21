@@ -30,9 +30,9 @@ function Power_Consumption() { //종류별 소비전력 자동지정
 function electricity_calculation(month_time){
   // 910 + (month_time * 93.3) - (month_time * 5) + (month_time*5.3) - (month_time*3) - 4000; 
   // 200kWh이하 기본 계산식
-  if(month_time<=200) var i = (month_time * 90.6) -3090 -(((month_time * 90.6) -3090) % 1);//전기요금계 200미만
-  else if(month_time<=400) var i = 1600 + (month_time * 93.3)+((month_time-200)*187.9) - (month_time * 5) + (month_time*5.3) - (month_time*3); //전기요금계 400미만
-  else var i = 7300 + (month_time * 93.3)+((month_time-400)*280.6)+((month_time-200)*187.9) - (month_time * 5) + (month_time*5.3) - (month_time*3); //전기요금계 400이상
+  if(month_time<=300) var i = (month_time * 90.6) -3090 -(((month_time * 90.6) -3090) % 1);//전기요금계 200미만
+  else if(month_time<=450) var i = 1600 + (300 * 93.3)+((month_time-300)*187.9) - (month_time * 5) + (month_time*5.3) - (month_time*3); //전기요금계 400미만
+  else var i = 7300 + (300 * 93.3)+((month_time-450)*280.6)+(150*187.9) - (month_time * 5) + (month_time*5.3) - (month_time*3); //전기요금계 400이상
   if(i<=1000) i=1000;
   var v = i*0.1; //부가가치세
   var e = parseInt(i*0.037-(i*0.037%10)); //전력산업기반기금

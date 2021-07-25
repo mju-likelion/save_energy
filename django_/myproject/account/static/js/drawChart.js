@@ -53,7 +53,7 @@ var myChart = new Chart(ctx, {
 function cha(){
   var count = 0;
   var month_array = ['inputJan','inputFeb','inputMar','inputApr','inputMay','inputJun','inputJul','inputAug','inputAug','inputSep','inputOct','inputNov','inputDec'];
-  for (const i in month_array){
+  for (const i of month_array){
     myChart.data.datasets[0].data[count] = document.getElementById(i).Value;
   }
 }

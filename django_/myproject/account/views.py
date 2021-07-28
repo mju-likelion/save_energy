@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.http import HttpResponseRedirect
@@ -59,8 +59,14 @@ def community(request):
   communitys = Community.objects   # query set
   return render(request, 'community.html', {'communitys' : communitys})
 
+# 글쓰기
 def write(request) :
   return render(request, 'community_write.html')
+
+# 포스팅 세부
+def detail(request, pk) :
+  details = get_object_or_404(Community, pk=pk)
+  return render(request, 'community_detail.html', {'details' : details})
 
 def home(request):
   homes = Community.objects

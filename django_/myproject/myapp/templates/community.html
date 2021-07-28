@@ -92,7 +92,7 @@
                         <span>{{ myapp.id }}</span>
                     </th>
                     <td>
-                        <a href="/write/{{ myapp.id }}">
+                        <a href="{%url 'detail' myapp.id%}">
                             <span>{{myapp.title}}</span>
                         </a>
                     </td>

@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', myapp.views.home, name="home"),
     path('community/', myapp.views.community, name="community"),
-    # path('.community/', myapp.views.detail, name="detail"),  # community_detail page 연결
+    path('.community/<int:community_id>', myapp.views.detail, name="detail"),  # community_detail page 연결
     path('.write/', myapp.views.write, name="write"),  # community_write page 연결
     path('introduce/', myapp.views.introduce, name="introduce"),
     path('support/', myapp.views.support, name="support"),

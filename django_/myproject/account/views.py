@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
@@ -61,7 +62,26 @@ def community(request):
 
 # 글쓰기
 def write(request) :
-  return render(request, 'community_write.html')
+  if request.method == 'POST':
+    # # User 객체를 생성
+    # User = auth.get_user_model()
+    # # User 객체를 통해 이름이 'save_energy' 인 User 객체를 불러와 'author' 변수에 할당
+    # author = User.objects.get(username='도비')
+    author = request.POST['user']
+    title = request.POST['title']
+    body = request.POST['body']
+    post = Community.objects.create(
+      # Post 객체의 author 필드에 'author' 변수 할당
+      author=author,
+      title=title,
+      body=body,
+    )
+    # save 메서드 호출
+    post.save()
+    return HttpResponseRedirect(reverse('community'))
+
+  elif request.method == 'GET':
+    return render(request, 'community_write.html')
 
 # 포스팅 세부
 def detail(request, pk) :

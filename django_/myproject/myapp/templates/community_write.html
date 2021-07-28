@@ -49,7 +49,7 @@
   <div class="overlay"></div>
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+      <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
           id="clock"></span></a>
       <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
         data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,69 +72,27 @@
         <div class="col-lg-8 order-lg-last ftco-animate">
           <h2 class="mb-3">Write</h2>
 
-          <form action="#" class="p-5 bg-light">
+          <form action="" class="p-5 bg-light" method="POST">
+            <!-- 위조 방지 토큰 -->
+            {% csrf_token %}
             <div class="form-group">
-              <label for="name">작성자 *</label>
-              <input type="text" class="form-control" id="name">
+              <label for="name">닉네임 *</label>
+              <input name="user" type="text" class="form-control" id="input-author" placeholder="작성자">
             </div>
-            <!-- <div class="form-group">
-              <label for="email">작성 일자 *</label>
-              <input type="email" class="form-control" id="email">
-            </div> -->
+            
             <div class="form-group">
-              <label for="website">제목</label>
-              <input type="url" class="form-control" id="website">
+              <label for="title">글 제목</label>
+              <input name="title" type="text" class="form-control" id="input-title" placeholder="제목">
             </div>
 
             <div class="form-group">
               <label for="message">내용</label>
-              <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+              <textarea name="body" id="body" cols="30" rows="10" class="form-control" placeholder="글 내용을 입력하세요."></textarea>
             </div>
-            <div class="form-group">
-              <button onclick="alert('글 등록이 완료되었습니다')"><a href="{%url 'community' %}">등록하기</a></button>
-              <!-- <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary"> -->
-            </div>
+            
+            <button onclick="alert('글 등록이 완료되었습니다')">등록하기</button>       
 
           </form>
-          <!-- <h3 class="mb-3 mt-5"># 글 목록</h3>
-          
-          <div id="table1">
-            <img id="community_table" src="images/community.png" width="700px">
-          </div>
-          <br>
-          <div id="btn">
-            <p class="mb-0"><a href="community.html" class="btn btn-secondary">글쓰기<span
-                  class="ion-ios-arrow-round-forward"></span></a></p>
-          </div> -->
-
-          <!-- <div class="pt-5 mt-5">        
-            <div class="comment-form-wrap pt-5">
-              <h3 class="mb-5">Write</h3>
-              <form action="#" class="p-5 bg-light">
-                <div class="form-group">
-                  <label for="name">작성자 *</label>
-                  <input type="text" class="form-control" id="name">
-                </div>
-                <div class="form-group">
-                  <label for="email">작성 일자 *</label>
-                  <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                  <label for="website">제목</label>
-                  <input type="url" class="form-control" id="website">
-                </div>
-
-                <div class="form-group">
-                  <label for="message">내용</label>
-                  <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
-                </div>
-                <div class="form-group">
-                  <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
-                </div>
-
-              </form>
-            </div>
-          </div> -->
 
         </div> <!-- .col-md-8 -->
         <div class="col-lg-4 sidebar ftco-animate">
@@ -143,7 +101,7 @@
             <ul class="categories">
               <li><a href="index.html">Home</a></li>
               <li><a href="introduce.html">Introduce</a></li>
-              <li><a href="#">Community</a></li>
+              <li><a href="{%url 'community' %}">Community</a></li>
               <li><a href="support_logout.html">Supporting</a></li>
             </ul>
           </div>

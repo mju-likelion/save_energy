@@ -88,6 +88,16 @@ def detail(request, pk) :
   details = get_object_or_404(Community, pk=pk)
   return render(request, 'community_detail.html', {'details' : details})
 
+# 포스팅 지우기
+def post_delete(request, pk):
+  if request.method == 'POST':
+    post = Community.objects.get(pk=pk)
+    post.delete()
+    return render(request, 'post_delete.html')
+
+  elif request.method == 'GET':
+    return HttpResponse('잘못된 접근 입니다.')
+
 def home(request):
   homes = Community.objects
   return render(request, 'home.html', {'homes' : homes})

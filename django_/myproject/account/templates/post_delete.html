@@ -65,21 +65,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 order-lg-last ftco-animate">
-          <!-- <h2 class="mb-3">커뮤니티</h2> -->
-          <span><h3 class="mb-3 mt-5">{{details.id}}.  {{details.title}}</h3></span><span><p>작성 날짜 : {{details.date}} / 작성자 : {{details.author}}</p></span>
-          
-          <div class="about-author d-flex p-4 bg-light">
-            <div class="desc">
-              <p>{{details.body}}
-              </p>
+            <div class="container">
+                <br><br>
+                <h1>글이 삭제되었습니다.</h1>
+                <br><br>
+                <a href="{%url 'community' %}">
+                    <button type="button" class="btn btn-primary to-main">To Community</button>
+                </a>
             </div>
-          </div>
-
-          <form action="{% url 'post_delete' pk=details.pk %}" method="POST">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Delete</button>
-          </form>
-
         </div> <!-- .col-md-8 -->
 
         <div class="col-lg-4 sidebar ftco-animate">

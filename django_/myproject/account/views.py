@@ -1,7 +1,9 @@
+from django.http import response
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Community
@@ -67,7 +69,10 @@ def write(request) :
     # User = auth.get_user_model()
     # # User 객체를 통해 이름이 'save_energy' 인 User 객체를 불러와 'author' 변수에 할당
     # author = User.objects.get(username='도비')
-    author = request.POST['user']
+    # author = request.POST['user']
+    # 'user' = request.user
+    # author = User.objects.get(author = request.user)
+    author = str(request.user) # str type로 바꿔줘야 오류 x
     title = request.POST['title']
     body = request.POST['body']
     post = Community.objects.create(
@@ -76,6 +81,7 @@ def write(request) :
       title=title,
       body=body,
     )
+    post.writer = author
     # save 메서드 호출
     post.save()
     return HttpResponseRedirect(reverse('community'))
@@ -92,9 +98,14 @@ def detail(request, pk) :
 def post_delete(request, pk):
   if request.method == 'POST':
     post = Community.objects.get(pk=pk)
-    post.delete()
-    return render(request, 'post_delete.html')
-
+    if str(post.author) == str(request.user) :    # 본인의 게시글일 때
+      post.delete()
+      return render(request, 'post_delete.html')
+    else :
+      # return HttpResponse('잘못된 접근 입니다.') messages.error(request, "Error")
+      # return render(request, print("본인의 게시글이 아닙니다."))
+      # return render(request, 'community_detail.html')
+      messages.info(request, '본인의 게시글이 아닙니다.')
   elif request.method == 'GET':
     return HttpResponse('잘못된 접근 입니다.')
 

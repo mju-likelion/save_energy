@@ -9,9 +9,10 @@ urlpatterns = [
     path('chart/', views.chart, name='chart'),
     path('community/', views.community, name='community'),
     path('community/<int:pk>', views.detail, name='detail'),
-    path('community/(?P<pk>\d+)/delete/$', views.post_delete, name='post_delete'),
+    # path('community/(?P<pk>\d+)/delete/$', views.post_delete, name='post_delete'),
     path('write/', views.write, name='write'),
     path('home/', views.home, name='home'),
+    path('create/',views.create, name='create'),
 
     # path('archive/', views.PostAV.as_view(), name='community_archive'),
     # path('archive/<int:year>/', views.PostYAV.as_view(), name='community_year_archive'),

@@ -68,19 +68,81 @@
   <section class="ftco-section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-8 order-lg-last ftco-animate">
+        <div class="col-lg-9 order-lg-last ftco-animate">
           {% if user.is_authenticated %}
           <h2 class="mb-3">{{user}}님의 월별 차트 사용량입니다.</h2>
           {% else %}
           <p>로그인하세요</p>
           {% endif %}
           <p>한 달 동안 사용한 전기량을 차트로 기록해보세요!</p>
-
+          <form method="POST" action ="{% url 'create' %}">
+          {% csrf_token %}
+          <h1 class="text-center">월별 사용량 차트</h1>
+          <div class="container">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="input">월별 사용량 입력하기 (단위 : kWh)</div>
+          <div class="parent">
+            <div class="January">
+              <p class="text-center">January</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJan" value="0" name="Jan">
+            </div>
+            <div class="February">
+              <p class="text-center">February</p>
+              <input style="text-align: center;" type="text" size="2" id="inputFeb" value="0" name="Feb">
+            </div>
+            <div class="March">
+              <p class="text-center">March</p>
+              <input style="text-align: center;" type="text" size="2" id="inputMar" value="0" name="Mar">
+            </div>
+            <div class="April">
+              <p class="text-center">April</p>
+              <input style="text-align: center;" type="text" size="2" id="inputApr" value="0" name="Apr">
+            </div>
+            <div class="May">
+              <p class="text-center">May</p>
+              <input style="text-align: center;" type="text" size="2" id="inputMay" value="0" name="May">
+            </div>
+            <div class="June">
+              <p class="text-center">June</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJun" value="0" name="Jun">
+            </div>
+            <div class="July">
+              <p class="text-center">July</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJul" value="0" name="Jul">
+            </div>
+            <div class="August">
+              <p class="text-center">August</p>
+              <input style="text-align: center;" type="text" size="2" id="inputAug" value="0" name="Aug">
+            </div>
+            <div class="September">
+              <p class="text-center">September</p>
+              <input style="text-align: center;" type="text" size="2" id="inputSep" value="0" name="Sep">
+            </div>
+            <div class="October">
+              <p class="text-center">October</p>
+              <input style="text-align: center;" type="text" size="2" id="inputOct" value="0" name="Oct">
+            </div>
+            <div class="November">
+              <p class="text-center">November</p>
+              <input style="text-align: center;" type="text" size="2" id="inputNov" value="0" name="Nov">
+            </div>
+            <div class="December">
+              <p class="text-center">December</p>
+            <input style="text-align: center;" type="text" size="2" id="inputDec" value="0" name="Dec">
+            {% if user.is_authenticated %}
+              <button type="submit" class="btn" onclick="cha()">적용하기</button>
+            {% else %}  
+              <button type="button" class="btn" onclick="alert('로그인을 해주세요')">적용하기</button>
+            {% endif %}
+            </div>
+          </div>
+        </form>
 
 
           
         </div> <!-- .col-md-8 -->
-        <div class="col-lg-4 sidebar ftco-animate">
+        <div class="col-lg-3 sidebar ftco-animate">
           <div class="sidebar-box ftco-animate">
             <h3 class="heading-sidebar">Categories</h3>
             <ul class="categories">

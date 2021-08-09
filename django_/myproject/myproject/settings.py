@@ -28,12 +28,22 @@ MESSAGE_LEVEL = messages_constants.DEBUG
 
 # SECURITY WARNING: keep the secret key used in production secret!
 from . import my_settings
-SECRET_KEY = my_settings.SECRET_KEY
-DATABASES = my_settings.DATABASES
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# SECRET_KEY = my_settings.SECRET_KEY
 
-ALLOWED_HOSTS = []
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure--5=juvr0&wqjww27i=2gcjp@p*v!72k-664no5p06aep!30$-2')
+
+import dj_database_url
+
+# DATABASES = my_settings.DATABASES
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+my_settings.DATABASES['default'].update(db_from_env)
+
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
+
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -57,6 +67,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'myproject.urls'

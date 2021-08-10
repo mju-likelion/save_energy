@@ -1,3 +1,4 @@
+from django.db.models.expressions import Value
 from django.http import response
 from django.http.response import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -7,6 +8,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .models import Community
+from .models import Chart
+from django.core import serializers
 # from django.views.generic import ListView, DetailView
 # from django.views.generic.dates import ArchiveIndexView, DateDetailView, DayArchiveView, MonthArchiveView, TodayArchiveView, YearArchiveView
 
@@ -22,6 +25,8 @@ def signup(request):
       user = User.objects.create_user(username=request.POST['username'], password=request.POST['password1'], email = request.POST['id'])
       # 로그인 한다
       auth.login(request, user)
+      author = str(request.user)
+      Chart.objects.create(author = author) #db생성
       return redirect('/')
       # signup으로 GET 요청이 왔을 때, 회원가입 화면을 띄워준다.
   return render(request, 'signup.html')
@@ -65,13 +70,6 @@ def community(request):
 # 글쓰기
 def write(request) :
   if request.method == 'POST':
-    # # User 객체를 생성
-    # User = auth.get_user_model()
-    # # User 객체를 통해 이름이 'save_energy' 인 User 객체를 불러와 'author' 변수에 할당
-    # author = User.objects.get(username='도비')
-    # author = request.POST['user']
-    # 'user' = request.user
-    # author = User.objects.get(author = request.user)
     author = str(request.user) # str type로 바꿔줘야 오류 x
     title = request.POST['title']
     body = request.POST['body']
@@ -128,7 +126,42 @@ def mypage(request):
 
 def chart(request):
   if request.user.is_authenticated: 
-  #로그인 한 상태라면 mypage.html로 보내기.
     return render(request, 'chart.html')
   else:
     return render(request, 'login.html')
+
+def create(request):
+  author = str(request.user) # POST요청을 변수에 담는 부분
+  Jan = request.POST['Jan']
+  Feb = request.POST['Feb']
+  Mar = request.POST['Mar']
+  Apr = request.POST['Apr']
+  May = request.POST['May']
+  Jun = request.POST['Jun']
+  Jul = request.POST['Jul']
+  Aug = request.POST['Aug']
+  Sep = request.POST['Sep']
+  Oct = request.POST['Oct']
+  Nov = request.POST['Nov']
+  Dec = request.POST['Dec']
+  user_author = Chart.objects.values('author') #modey.py의 오브젝트중 author(유저 닉네임부분)을 가져오는곳
+  a = 0
+  for i in user_author: #가져오는 데이터 QuerySet을 가져오고 list로 변환하여 담는부분
+    if list(i.values())[0] == author:
+      a = list(i.values())[0]
+  Chart.objects.filter(author = a).update(#db값 업데이트
+    Jan = Jan,
+    Feb = Feb,
+    Mar = Mar,
+    Apr = Apr,
+    May = May,
+    Jun = Jun,
+    Jul = Jul,
+    Aug = Aug,
+    Sep = Sep,
+    Oct = Oct,
+    Nov = Nov,
+    Dec = Dec,
+  )
+  return render(request, 'chart.html')
+

@@ -1,3 +1,4 @@
+from django.db.models import fields
 from django.db.models.expressions import Value
 from django.http import response
 from django.http.response import HttpResponse
@@ -10,6 +11,7 @@ from django.urls import reverse
 from .models import Community
 from .models import Chart
 from django.core import serializers
+import json
 # from django.views.generic import ListView, DetailView
 # from django.views.generic.dates import ArchiveIndexView, DateDetailView, DayArchiveView, MonthArchiveView, TodayArchiveView, YearArchiveView
 
@@ -126,7 +128,18 @@ def mypage(request):
 
 def chart(request):
   if request.user.is_authenticated: 
-    return render(request, 'chart.html')
+    author = str(request.user)
+    user_author = Chart.objects.values('author') #modey.py의 오브젝트중 author(유저 닉네임부분)을 가져오는곳
+    a = 0
+    for i in user_author: #가져오는 데이터 QuerySet을 가져오고 list로 변환하여 담는부분
+      if list(i.values())[0] == author:
+        a = list(i.values())[0]
+    chart_test = Chart.objects.filter(author = a)
+    chart_list = serializers.serialize('json', chart_test)
+    context = {
+      'chart_list' : chart_list
+    }
+    return render(request, 'chart.html', context)
   else:
     return render(request, 'login.html')
 
@@ -163,5 +176,10 @@ def create(request):
     Nov = Nov,
     Dec = Dec,
   )
-  return render(request, 'chart.html')
+  chart_test = Chart.objects.filter(author = a)
+  chart_list = serializers.serialize('json', chart_test)
+  context = {
+    'chart_list' : chart_list
+  }
+  return render(request, 'chart.html' , context)
 

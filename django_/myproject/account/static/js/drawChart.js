@@ -51,6 +51,9 @@ var myChart = new Chart(ctx, {
   } 
 });
 function cha(){
+  const a = [];
+  a.push(document.getElementById(Jan).Value);
+  document.getElementById(i).Value;;
   var count = 0;
   var month_array = ['inputJan','inputFeb','inputMar','inputApr','inputMay','inputJun','inputJul','inputAug','inputAug','inputSep','inputOct','inputNov','inputDec'];
   for (const i of month_array){

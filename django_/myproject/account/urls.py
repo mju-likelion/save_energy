@@ -13,7 +13,6 @@ urlpatterns = [
     path('write/', views.write, name='write'),
     path('home/', views.home, name='home'),
     path('create/',views.create, name='create'),
-    path('getMonth/', views.getMonth, name='getMonth'),
 
     # path('archive/', views.PostAV.as_view(), name='community_archive'),
     # path('archive/<int:year>/', views.PostYAV.as_view(), name='community_year_archive'),

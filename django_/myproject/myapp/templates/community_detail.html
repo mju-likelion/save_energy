@@ -80,10 +80,10 @@
           </span> -->
           
           {% if user.username == details.author %}
-            <form action="{% url 'post_delete' pk=details.pk %}" method="POST">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+          <form action="{% url 'post_delete' pk=details.pk %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
           {% endif %}
 
         </div> <!-- .col-md-8 -->

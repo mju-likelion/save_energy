@@ -29,11 +29,21 @@ MESSAGE_LEVEL = messages_constants.DEBUG
 # SECURITY WARNING: keep the secret key used in production secret!
 from . import my_settings
 SECRET_KEY = my_settings.SECRET_KEY
-DATABASES = my_settings.DATABASES
+# DATABASES = my_settings.DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': config('ENGINE'),
+        'NAME': config('NAME'),
+        'USER': config('USER'),                         #root 유저(기본값) 사용
+        'PASSWORD': config('PASSWORD'),
+        'HOST': config('HOST'),
+        'PORT': '3306', 
+    }
+}
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

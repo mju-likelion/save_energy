@@ -29,21 +29,11 @@ MESSAGE_LEVEL = messages_constants.DEBUG
 # SECURITY WARNING: keep the secret key used in production secret!
 from . import my_settings
 SECRET_KEY = my_settings.SECRET_KEY
-# DATABASES = my_settings.DATABASES
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_e15e143fa01cbc8',                       #위에서 생성한 DB이름 사용
-        'USER': 'bd5e30530bc074',                         #root 유저(기본값) 사용
-        'PASSWORD': '807c914d',
-        'HOST': 'us-cdbr-east-04.cleardb.com',
-        'PORT': '3306',                         #mysql 설치 시에 설정한 포트번호
-    }
-}
+DATABASES = my_settings.DATABASES
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition

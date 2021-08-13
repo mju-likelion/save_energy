@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>SAVE_ENERGY</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/open-iconic-bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}" />
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/chart.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/community_style.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/loginstyle.css' %}" />
+  </head>
+<body>
+
+  <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('/static/images/background_login.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 pb-5 text-center">
+          <h1 class="mb-3 bread">Sign Up</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{%url 'login' %}">Login <i class="ion-ios-arrow-forward"></i></a></span><span class="mr-2"><a href="{%url 'signup' %}">Sign Up<i class="ion-ios-arrow-forward"></i></a></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="overlay"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+              id="clock"></span></a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+          data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+    <span class="nav-item cta"><a href="{%url 'login' %}" class="nav-link">로그인</a></span>
+    </div>
+  </nav>
+  <div class="signup">
+    <form method="POST" action="{%url 'signup' %}" class="p-5 bg-light">
+      {% csrf_token %}
+      <fieldset>
+        <legend>회원가입</legend> <br><br>
+      <div class="form-group">
+        <p> ID(Email 형식)  * : 
+          <input name = "id" type="text"  id="signUp_form" v-model="ID" placeholder="ID를 입력하세요.">
+        </p>
+
+        <p> Password * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :
+          <input name = "password1" type="password"  id="signUp_form" v-model="PW" placeholder="PW를 입력하세요.">
+        </p>
+
+        <p> Password 확인 * :
+          <input name = "password2" type="password"  id="signUp_form" v-model="PW" placeholder="PW를 다시 한 번 입력하세요.">
+        </p>
+        
+        <p> 닉네임&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 
+          <input name = "username" type="text"  id="signUp_form" placeholder="닉네임을 입력하세요.">
+        </p>
+        <br><br>
+        <input class="btn btn-primary" type="submit" value="SignUp" onclick="alert('회원가입이 완료되었습니다.')">
+
+        <!-- <button onclick="alert('회원가입이 완료되었습니다.')"><a href="{%url 'home' %}">Sign Up <br></a></button> -->
+      </div>
+    </fieldset>
+    </form>
+  </div>
+      <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+      <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+      <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+      <script src="{% static 'js/aos.js' %}"></script>
+      <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+      <script src="{% static 'js/scrollax.min.js' %}"></script>
+
+      <script src="{% static 'js/main.js' %}"></script>
+      <script src="{% static 'js/clock.js' %}"></script>
+      <script src="{% static 'js/power_calculation.js' %}"></script>
+      <script src="{% static 'js/drawChart.js' %}"></script>
+      <script src="{% static 'js/co2.js' %}"></script>
+</body>
+
+
+
+
+<!-- {% block contents %}
+<div class="container">
+  <h1>Sign Up!</h1>
+
+  <form method = "POST" action="{%url 'signup'%}"> 
+    {% csrf_token %}
+    Username:
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    Password:
+    <br>
+    <input name="password1" type="password" value="">
+    <br>
+    Confirm Password:
+    <br>
+    <input name="password2" type="password" value="">
+    <br><br>
+    <input class="btn btn-primary" type="submit" value="Sign Up!">
+  </form>
+</div>
+{% endblock %} -->

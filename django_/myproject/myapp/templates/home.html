@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>SAVE_ENERGY</title>
+  {% load static %}
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+	<!-- 차트생성 cdn -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/open-iconic-bootstrap.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}"/>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/chart.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/community_style.css' %}"/>
+</head>
+
+<body>
+	<sript src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.35/dayjs.min.js"></sript>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light " id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+					id="clock"></span></a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+				data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="home"><span>메인</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="projects"><span>소비/대기전력</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="team"><span>차트 관리</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="blog"><span>커뮤니티</span></a></li>
+					<li class="nav-item"><a href="#" class="nav-link" data-nav-section="contact"><span>후원하기</span></a></li>
+				</ul>
+			</div>
+						{% if user.is_authenticated %}
+						<!-- <span class="nav-item cta"> -->
+							<a href="{%url 'mypage' %}" class="nav-link">마이페이지</a>
+						<!-- </span> -->
+						<form method="POST" action="{%url 'logout' %}">
+							<span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
+						</form>
+						{% else %}  
+						<span class="nav-item cta"><a class="nav-link" href="{% url 'login' %}">로그인</a></span>
+						{% endif %}
+		</div>
+	</nav>
+
+	<section class="hero-wrap js-fullheight backimage" style="background-image: url('/static/images/background_home_light.jpg');"
+		data-section="home">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start"
+				data-scrollax-parent="true">
+				<div class="col-md-8 ftco-animate mt-5" data-scrollax=" properties: { translateY: '70%' }">
+					<p class="d-flex align-items-center" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">
+						<a href="https://www.youtube.com/watch?v=x3iy315chyc"
+							class="icon-video popup-vimeo d-flex justify-content-center align-items-center mr-3">
+							<span class="ion-ios-play play mr-2"></span>
+							<span class="watch">Watch Video</span>
+						</a>
+					</p>
+					<h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">We want to save energy</h1>
+					<p class="mb-4" id="event_text" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"></p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="ftco-section ftco-services ftco-no-pt">
+		<div class="container">
+			<div class="row services-section">
+				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block">
+						<div class="icon"><span class="flaticon-layers"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">서비스 소개</h3>
+							<p>Save Energy는 대기전력과 소비전력의 간편 계산 기능 제공 및
+								전기 절약과 환경 보호 인식 확산을 목표로 합니다 <br>
+								본 서비스를 통해...</p>
+							<p><a href="{%url 'introduce' %}" class="btn btn-primary">Read more</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block">
+						<div class="icon"><span class="flaticon-compass-symbol"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">커뮤니티</h3>
+							<p>
+								Save Energy 커뮤니티에서 전기 관련 지식을 얻고 당신의 지식을 나눠주세요 <br>
+								전기 절약에 대한 여러분의 다양한 논의는 지구를 웃게 만듭니다</p>
+							<!-- <a href="#" class="btn btn-primary" onclick="alert('로그인 후 이용해주세요.')">Read more</a> -->
+							<a href="{%url 'community' %}" class="btn btn-primary">Read more</a>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 d-flex align-self-stretch ftco-animate">
+					<div class="media block-6 services text-center d-block">
+						<div class="icon"><span class="flaticon-layers"></span></div>
+						<div class="media-body">
+							<h3 class="heading mb-3">환경보호 후원</h3>
+							<p>Save Energy는 다양한 환경보호 단체들과의 Connection을 제공합니다 <br>
+								환경보호를 향한 당신의 따뜻한 손길을 표현해주세요</p>
+							<p><a href="{%url 'support' %}" class="btn btn-primary">Read more</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section ftco-project bg-light" data-section="projects" style="padding: 0;">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">소비전력 확인하기</span>
+					<h2 class="mb-4">소비전력 계산기</h2>
+					<p>
+					<table class="table table-bordered">
+							<tr>
+								<td></td>
+								<th>1단계</th>
+								<th>2단계</th>
+								<th>3단계</th>
+							</tr>
+							<tr>
+								<th>기준</th>
+								<td>300이하</td>
+								<td>450이하</td>
+								<td>450이상</td>
+							</tr>
+							<tr>
+								<th>기본요금</th>
+								<td>* 910</td>
+								<td>* 1600</td>
+								<td>* 7300</td>
+							</tr>
+						<tr>
+							<th>전력요금</th>
+							<td> 93.3</td>
+							<td> 187.9</td>
+							<td> 280.6</td>
+						</tr>
+						<tr>
+							<th>기후환경요금</th>
+							<td colspan="3">* 53</td>
+						</tr>
+						<tr>
+						<!-- <tr style="border-bottom: 2px solid  black;">  -->
+							<th>연료비조정액</th>
+							<td colspan="3">* (-3)</td>
+						</tr>
+						<tr>
+							<tr>
+								<td colspan="4"> + </td>
+							</tr>
+							<th>부가가치세</th>
+							<td colspan="3">* 0.1</td>
+						</tr>
+						<tr>
+							<th>전력산업기반기금</th>
+							<td colspan="3">* 0.037</td>
+						</tr>
+					</table>
+					<p>( * 위의표를 기준으로 계산됩니다. )</p>
+					</p>
+					<p> SAVE_ENERGY는 일반 가정 환경에서의 간단한 요금을 계산해주는 서비스로서 <br>10원미만의 오차가 발생될 수 있습니다. </p>
+				</div>
+			</div>
+			<div class="row no-gutters block-9">
+				<!-- <div class="col-md-6 order-md-last d-flex"> -->
+				<!-- <div class="container"> -->
+
+				<body>
+					<table class="table table-bordered">
+						<thead>
+							<tr class="warning">
+								<th style="width: 100px;">순번\종류</th>
+								<th>제품 종류</th>
+								<th>소비전력(일)</th>
+								<th>평균 사용시간</th>
+								<th>월간 사용량</th>
+								<th>예상 전기요금</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="warning">
+								<th style="text-align: center;">1</th>
+								<td>
+									<select id="Kind" onclick="Power_Consumption()">
+										<option>선택</option>
+										<option>TV</option>
+										<option>에어컨</option>
+										<option>냉장고</option>
+										<option>컴퓨터</option>
+										<option>세탁기</option>
+										<option>기타</option>
+									</select>
+								</td>
+								<td><input id="Power_Consumption" size="4" value="0">W
+								<td><input id="time" size="2" value="0" onkeyup="average_time()">시간</td>
+								<td>
+									<div id="month_time">kWh</div>
+								</td>
+								<td>
+									<div id="total">원</div>
+								</td>
+							</tr>
+							<tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</section>
+	<section class="ftco-section ftco-project bg-light" data-section="projects">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-3">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">대기전력 확인하기</span>
+					<h2 class="mb-4">대기전력 계산기</h2>
+					<p>대기전력이란 바로 전원을 끈 상태에서도 전기제품이 소비하는 전력을 말합니다.</p>
+					<p>가정에서 대기전력으로 인하여 손실되는 전력이 대략 6~11%로 추정되고 있습니다.</p>
+				</div>
+			</div>
+			<div class="row no-gutters block-9">
+				<!-- <div class="col-md-6 order-md-last d-flex"> -->
+				<!-- <div class="container"> -->
+
+				<body>
+					<table class="table table-bordered" style="text-align: center;">
+						<thead>
+							<tr class="warning">
+								<th style="width: 100px;">순번\종류</th>
+								<th>제품 종류</th>
+								<th>소비전력(일)</th>
+								<th>평균 사용시간</th>
+								<th>월간 사용량</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="warning">
+								<th>1</th>
+								<td>
+									<select id="Standby_Kind" onclick="Power_standby()">
+										<option>선택</option>
+										<option>TV</option>
+										<option>에어컨</option>
+										<option>냉장고</option>
+										<option>컴퓨터</option>
+										<option>세탁기</option>
+										<option>기타</option>
+									</select>
+								</td>
+								<td><input id="Power_Standby" size="4" value="0">W
+								<td><input id="time_standby" size="2" value="0" onkeyup="average_time_standby()">시간</td>
+								<td>
+									<div id="month_time_standby">W</div>
+								</td>
+							</tr>
+							<tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="ftco-section ftco-project bg-light" data-section="team">
+		<div class="container" id="myct">
+			<!-- SAVE_ENERGY -->
+			<h1 class="text-center">월별 사용량 차트</h1>
+			<div class="container">
+				<canvas id="myChart"></canvas>
+			</div>
+			<div class="input">월별 사용량 입력하기 (단위 : kWh)</div>
+			<div class="parent">
+				<div class="January">
+					<p class="text-center">January</p>
+					<input style="text-align: center;" type="text" size="4" id="inputJan" value="0">
+				</div>
+				<div class="February">
+					<p class="text-center">February</p>
+					<input style="text-align: center;" type="text" size="4" id="inputFeb" value="0">
+				</div>
+				<div class="March">
+					<p class="text-center">March</p>
+					<input style="text-align: center;" type="text" size="4" id="inputMar" value="0">
+				</div>
+				<div class="April">
+					<p class="text-center">April</p>
+					<input style="text-align: center;" type="text" size="4" id="inputApr" value="0">
+				</div>
+				<div class="May">
+					<p class="text-center">May</p>
+					<input style="text-align: center;" type="text" size="4" id="inputMay" value="0">
+				</div>
+				<div class="June">
+					<p class="text-center">June</p>
+					<input style="text-align: center;" type="text" size="4" id="inputJun" value="0">
+				</div>
+				<div class="July">
+					<p class="text-center">July</p>
+					<input style="text-align: center;" type="text" size="4" id="inputJul" value="0">
+				</div>
+				<div class="August">
+					<p class="text-center">August</p>
+					<input style="text-align: center;" type="text" size="4" id="inputAug" value="0">
+				</div>
+				<div class="September">
+					<p class="text-center">September</p>
+					<input style="text-align: center;" type="text" size="4" id="inputSep" value="0">
+				</div>
+				<div class="October">
+					<p class="text-center">October</p>
+					<input style="text-align: center;" type="text" size="4" id="inputOct" value="0">
+				</div>
+				<div class="November">
+					<p class="text-center">November</p>
+					<input style="text-align: center;" type="text" size="4" id="inputNov" value="0">
+				</div>
+				<div class="December">
+					<p class="text-center">December</p>
+					<input style="text-align: center;" type="text" size="4" id="inputDec" value="0">
+					{% if user.is_authenticated %}
+						<button type="button" class="btn" onclick="cha()">적용하기</button>
+					{% else %}  
+						<button type="button" class="btn" onclick="alert('로그인을 해주세요')">적용하기</button>
+					{% endif %}
+				</div>
+			</div>
+
+		</div>
+	<!-- </section> -->
+
+
+	<!-- <section class="testimony-section" data-section="testimony"> -->
+		<!-- SAVE_ENERGY -->
+		<div class="container" id="myct">
+			<br>
+			<h1 class="text-center">전기와 CO2 알아보기</h1>
+			<br>
+			<div class="container">
+				<table class="co2 table">
+					<thead>
+						<tr class="warning">
+							<th>#</th>
+							<th>월간 사용량</th>
+							<th>CO2 발생량</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>☆</th>
+							<td><input id="month_usage" size="2" value="0" onkeyup="occurr()"> kWh</td>
+							<td>
+								<div id="co2occurr">kg</div>
+							</td>
+						</tr>
+						<tr>
+					</tbody>
+				</table>
+				<img src="/static/images/Pngtree.png" style="height: 550px;width: 450px;">
+				<span id="tree"></span>
+			</div>
+
+	</section>
+
+	<!-- community -->
+	<section class="ftco-section bg-light" data-section="blog">
+		<div class="container">
+			<div class="row justify-content-center mb-5 pb-5">
+				<div class="col-md-7 heading-section text-center ftco-animate">
+					<span class="subheading">community</span>
+					<h2 class="mb-4">커뮤니티</h2>
+					<p>커뮤니티에서 전기 관련 지식을 얻고 당신의 지식을 나눠주세요!<br> 
+						Save Energy 커뮤니티에는 당신만 몰랐던 사실이 가득합니다. <br>
+						지금 함께 알아보시겠어요?</p>
+
+					<div id="btn">
+						<a class="btn btn-secondary" href="{%url 'community' %}" role="button">알아보러 가기</a>
+					</div>
+
+					<div id="community">
+						<br>
+						<!-- <div id="btn">
+							<a href="#" class="btn btn-secondary" onclick="alert('로그인 후 이용해주세요.')">글쓰기<span
+									class="ion-ios-arrow-round-forward"></span></a>
+						</div> -->
+						<br>
+						<!-- <div id="table1">
+							<a href="#" onclick="alert('로그인 후 이용해주세요.')"><img id="community_table" src="/static/images/community.png"
+									width="700px"></a>
+						</div> -->
+						<div class="row">
+							<div class="item">
+								<div class="project">
+									<div class="img">
+										<img src="/static/images/energy.jfif" class="img-fluid" alt="Colorlib Template" style="height: 230px; margin-right: 20px;">
+									</div>
+									<div class="text px-4">
+										<h3><a href="#">소비전력이란?</a></h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="project">
+									<div class="img">
+										<br><br>
+										<img src="/static/images/earth_energy.jpg" class="img-fluid" alt="Colorlib Template" style="height: 145px;">
+									</div>
+									<div class="text px-4">
+										<br>
+										<h3><a href="#">전기와 환경</a></h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="project">
+									<div class="img">
+										<img src="/static/images/ele.png" class="img-fluid" alt="Colorlib Template" style="height: 230px;">
+									</div>
+									<div class="text px-4">
+										<h3><a href="#">대기전력이란?</a></h3>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="container">
+							<table class="table">
+									<thead class="thead-light">
+									<tr class="text-center">
+											<th scope="col">#</th>
+											<th scope="col">제목</th>
+											<th scope="col">작성자</th>
+											<th scope="col">작성일</th>
+									</tr>
+									</thead>
+									<tbody>
+									{% for myapp in homes.all %}
+									<tr class="text-center">
+											<th scope="row">
+													<span>{{ myapp.id }}</span>
+											</th>
+											<td>
+													<a href="{%url 'detail' myapp.id%}">
+															<span>{{myapp.title}}</span>
+													</a>
+											</td>
+											<td>
+													<span>{{ myapp.author }}</span>
+											</td>
+											<td>
+													<span>{{ myapp.mod_date | date:"Y-m-d h:i" }}</span>
+											</td>
+									</tr>
+									{% endfor %}
+									</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<section class="ftco-section contact-section ftco-no-pb" data-section="contact">
+		<div class="container-fluid px-md-5">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+					<span class="subheading">SUPPORT</span>
+					<h2 class="mb-4">후원하기</h2>
+
+					<p>전기 관련 사이트로 바로갈 수 있습니다.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 testimonial">
+					<div class="carousel-project owl-carousel">
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/plug.png" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/energy.jfif"
+										class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="https://home.kepco.co.kr/kepco/main.do">한국전력공사 바로가기</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/light.png" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/ele.png" class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="http://www.kea.kr/front/">대한전기협회</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/bear.gif" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/bear.gif" class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="http://www.koema.or.kr/intro/intro.html">한국 전기산업 진흥회</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/bear2.jpg" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/bear2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="https://www.keri.re.kr/html/kr/index.html">한국전기연구원</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/earth1.png" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/earth1.png" class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="https://www.me.go.kr/home/web/index.do?menuId=10310">환경부</a></h3>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="project">
+								<div class="img">
+									<img src="/static/images/save.gif" class="img-fluid" alt="Colorlib Template" style="height: 350px;">
+									<a href="/static/images/save.gif" class="icon image-popup d-flex justify-content-center align-items-center">
+										<span class="icon-expand"></span>
+									</a>
+								</div>
+								<div class="text px-4">
+									<h3><a href="https://www.keei.re.kr/main.nsf/index.html">에너지경제연구원</a></h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="row">
+		<div class="col-md-12 text-center">
+
+			<p>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+				Copyright &copy;
+				<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with
+				<i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com"
+					target="_blank">Colorlib</a>
+				<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			</p>
+		</div>
+	</div>
+	</div>
+	</footer>
+
+
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+				stroke="#F96D00" />
+		</svg></div>
+
+
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!--필요-->
+	<script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+	<!--필요-->
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<!--모름-->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!--필요-->
+	<!-- <script src="js/jquery.easing.1.3.js"></script> 모름 -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!--필요-->
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<!--필요!-->
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<!--필요 //후원하기 -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<!--필요 // 후원하기 사진확대후 이동-->
+	<script src="{% static 'js/aos.js' %}"></script>
+	<!--필요-->
+	<script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+	<!--필요-->
+	<script src="{% static 'js/scrollax.min.js' %}"></script>
+	<!--필요!-->
+
+	<script src="{% static 'js/main.js' %}"></script>
+	<script src="{% static 'js/clock.js' %}"></script>
+	<script src="{% static 'js/power_calculation.js' %}"></script>
+	<script src="{% static 'js/drawChart.js' %}"></script>
+	<script src="{% static 'js/co2.js' %}"></script>
+	</div>
+</body>
+
+</html>

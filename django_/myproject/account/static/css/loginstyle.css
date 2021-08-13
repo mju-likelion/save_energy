@@ -1,0 +1,44 @@
+#user img {
+  clip-path: circle(50% at 50% 50%);
+}
+fieldset{
+  padding: 15px;
+  border: 2px solid black;
+}
+legend {
+  margin:10 auto;
+  color:black
+}
+
+.login,
+.signup {
+  text-align: center;
+}
+
+.login form,
+.signup form {
+  display: inline-block;
+  width: 800px;
+}
+input {
+  width:230px;
+  /* color: #fff; */
+}
+.loginbtn {
+  background:#2e9e5b;
+  outline: 0;
+  border: 0;
+  width:100px;
+  text-align: center;
+}
+button {
+  background:#2e9e5b;
+  outline: 0;
+  border: 0;
+  width:400px;
+  text-align: center;
+}
+button a,
+button a:hover{
+  color: #fff;
+}

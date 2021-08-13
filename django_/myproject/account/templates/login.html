@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SAVE_ENERGY</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/open-iconic-bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/chart.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/community_style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/loginstyle.css' %}" />
+</head>
+
+<body>
+
+  <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('/static/images/background_login.jpg');" data-stellar-background-ratio="0.5">
+     <div class="overlay"></div>
+     <div class="container">
+       <div class="row no-gutters slider-text align-items-end justify-content-center">
+         <div class="col-md-9 pb-5 text-center">
+           <h1 class="mb-3 bread">Login</h1>
+           <p class="breadcrumbs"><span class="mr-2"><a href="{%url 'home' %}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{%url 'login' %}">Login <i class="ion-ios-arrow-forward"></i></a></span></p>
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <div class="overlay"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+     <div class="container">
+        <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+              id="clock"></span></a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+           data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="oi oi-menu"></span> Menu
+        </button>
+     </div>
+  </nav>
+           <br>
+           <div class="login">
+             <form method="POST" action="{%url 'login' %}">
+                {%csrf_token%}
+                  <fieldset>
+                  <legend>로그인 정보 입력</legend> 
+                 <div id="user"><img src="/static/images/user.png" alt="사용자"> </div> <br>
+                 <p> USERNAME :
+                   <input type="text" name="username" placeholder="ID를 입력하세요." class="np">
+                 <p> PASSWORD :
+                   <input type="password" name='password' placeholder="PW를 입력하세요." class="np">
+                 </p>
+                 <br><input class = "loginbtn btn btn-primary" type="submit" value="로그인">
+                 <!-- ID기억하기 <br><br> -->
+                 <!-- <button><a href="{%url 'home' %}">로그인 <br></a></button> -->
+                 <button class="btn btn-primary">
+                    <a href="{%url 'signup' %}">&nbsp;회원가입&nbsp;<br></a>
+                  </button>
+                 <br>
+                 <button class="btn btn-primary">
+                    <a href="#">&nbsp;&nbsp;ID찾기&nbsp;&nbsp;</a>
+                  </button>
+                 <button class="btn btn-primary">
+                    <a href="#">&nbsp;&nbsp;PW찾기&nbsp;&nbsp; <br></a>
+                  </button>
+               </fieldset>
+             </form>
+           </div>
+           <br>
+ 
+  
+
+
+
+  <!-- <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+           stroke="#F96D00" />
+     </svg></div> -->
+
+
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/clock.js' %}"></script>
+  <script src="{% static 'js/power_calculation.js' %}"></script>
+  <script src="{% static 'js/drawChart.js' %}"></script>
+  <script src="{% static 'js/co2.js' %}"></script>
+  </div>
+</body> 
+
+<!-- {% block contents %}
+<div class="container">
+  <h1>Login</h1>
+    <form>
+    Username:
+    <br>
+    <input name="username" type="text" value="">
+    <br>
+    Password:
+    <br>
+    <input name="password" type="password" value="">
+    <a href = "{%url 'home' %}">
+      <br><br>
+      <input class="btn btn-primary" type="submit" value="Login">
+      <a href = "{%url 'signup' %}" style="background-color: rgb(209, 129, 129); border-radius: 1rem; ">
+        SignUp!
+        <input class="btn btn-primary" type="submit" value="SignUp">
+      </a>
+    </form>
+  </div>
+{% endblock %} -->

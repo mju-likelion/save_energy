@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>SAVE_ENERGY</title>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/open-iconic-bootstrap.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.carousel.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/owl.theme.default.min.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/magnific-popup.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/aos.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/ionicons.min.css' %}" />
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/flaticon.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/icomoon.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/chart.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/community_style.css' %}" />
+</head>
+
+<body>
+  <!-- 헤더 배경 -->
+  <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('/static/images/background_login.jpg');"
+    data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate pb-5 text-center">
+          <h1 class="mb-3 bread">Chart</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="{%url 'home' %}">Home <i
+                  class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="{%url 'chart' %}">Chart<i
+                  class="ion-ios-arrow-forward"></i></a></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 네비 설정 -->
+  <div class="overlay"></div>
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo'
+          style="width: 100px;"><span id="clock"></span></a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+        data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      {% if user.is_authenticated %}
+      <form method="POST" action="{%url 'logout' %}">
+        <span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
+      </form>
+      {% else %}
+      <a class="nav-link" href="{% url 'login' %}">로그인</a>
+      {% endif %}
+
+    </div>
+  </nav>
+
+  <!-- 내용 부분 -->
+  <section class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 order-lg-last ftco-animate">
+          {% if user.is_authenticated %}
+          <h2 class="mb-3">{{user}}님의 월별 차트 사용량입니다.</h2>
+          {% else %}
+          <p>로그인하세요</p>
+          {% endif %}
+          <p>한 달 동안 사용한 전기량을 차트로 기록해보세요!</p>
+          <form method="POST" action ="{% url 'create' %}">
+          {% csrf_token %}
+          <h1 class="text-center">월별 사용량 차트</h1>
+
+          <input type="hidden" id="chart" value= "{{ chart_list }}">
+
+          <!-- <input type="hidden" id="Feb" value= "{{ i.Feb }}">
+          <input type="hidden" id="Mar" value= "{{ i.Mar }}">
+          <input type="hidden" id="Apr" value= "{{ i.Apr }}">
+          <input type="hidden" id="May" value= "{{ i.May }}">
+          <input type="hidden" id="Jun" value= "{{ i.Jun }}">
+          <input type="hidden" id="Jul" value= "{{ i.Jul }}">
+          <input type="hidden" id="Aug" value= "{{ i.Aug }}">
+          <input type="hidden" id="Sep" value= "{{ i.Sep }}">
+          <input type="hidden" id="Oct" value= "{{ i.Oct }}">
+          <input type="hidden" id="Nov" value= "{{ i.Nov }}">
+          <input type="hidden" id="Dec" value= "{{ i.Dec }}"> -->
+          
+          <div class="container">
+            <canvas id="myChart"></canvas>
+          </div>
+          <div class="input">월별 사용량 입력하기 (단위 : kWh)</div>
+          <div class="parent">
+            <div class="January">
+              <p class="text-center">January</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJan" value="0" name="Jan">
+            </div>
+            <div class="February">
+              <p class="text-center">February</p>
+              <input style="text-align: center;" type="text" size="2" id="inputFeb" value="0" name="Feb">
+            </div>
+            <div class="March">
+              <p class="text-center">March</p>
+              <input style="text-align: center;" type="text" size="2" id="inputMar" value="0" name="Mar">
+            </div>
+            <div class="April">
+              <p class="text-center">April</p>
+              <input style="text-align: center;" type="text" size="2" id="inputApr" value="0" name="Apr">
+            </div>
+            <div class="May">
+              <p class="text-center">May</p>
+              <input style="text-align: center;" type="text" size="2" id="inputMay" value="0" name="May">
+            </div>
+            <div class="June">
+              <p class="text-center">June</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJun" value="0" name="Jun">
+            </div>
+            <div class="July">
+              <p class="text-center">July</p>
+              <input style="text-align: center;" type="text" size="2" id="inputJul" value="0" name="Jul">
+            </div>
+            <div class="August">
+              <p class="text-center">August</p>
+              <input style="text-align: center;" type="text" size="2" id="inputAug" value="0" name="Aug">
+            </div>
+            <div class="September">
+              <p class="text-center">September</p>
+              <input style="text-align: center;" type="text" size="2" id="inputSep" value="0" name="Sep">
+            </div>
+            <div class="October">
+              <p class="text-center">October</p>
+              <input style="text-align: center;" type="text" size="2" id="inputOct" value="0" name="Oct">
+            </div>
+            <div class="November">
+              <p class="text-center">November</p>
+              <input style="text-align: center;" type="text" size="2" id="inputNov" value="0" name="Nov">
+            </div>
+            <div class="December">
+              <p class="text-center">December</p>
+            <input style="text-align: center;" type="text" size="2" id="inputDec" value="0" name="Dec">
+            {% if user.is_authenticated %}
+              <button type="submit" class="btn" onclick="cha()">적용하기</button>
+            {% else %}  
+              <button type="button" class="btn" onclick="alert('로그인을 해주세요')">적용하기</button>
+            {% endif %}
+            </div>
+          </div>
+        </form>
+
+          
+        </div> <!-- .col-md-8 -->
+        <div class="col-lg-3 sidebar ftco-animate">
+          <div class="sidebar-box ftco-animate">
+            <h3 class="heading-sidebar">Categories</h3>
+            <ul class="categories">
+              <li><a href="{%url 'home' %}" id = "test">Home</a></li>
+              <li><a href="{%url 'mypage' %}">Mypage</a></li>
+              <li><a href="{%url 'chart' %}">Chart</a></li>
+              <!-- <li><a href="{%url 'support' %}">Supporting</a></li> -->
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> <!-- .section -->
+        
+  
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <!--필요-->
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <!--필요-->
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <!--모름-->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!--필요-->
+  <!-- <script src="js/jquery.easing.1.3.js"></script> 모름 -->
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <!--필요-->
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <!--필요!-->
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <!--필요 //후원하기 -->
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <!--필요 // 후원하기 사진확대후 이동-->
+  <script src="{% static 'js/aos.js' %}"></script>
+  <!--필요-->
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <!--필요-->
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <!--필요!-->
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/clock.js' %}"></script>
+  <script src="{% static 'js/power_calculation.js' %}"></script>
+  <script src="{% static 'js/drawChart.js' %}"></script>
+  <script src="{% static 'js/co2.js' %}"></script>
+</body>

@@ -1,0 +1,18 @@
+
+#community {
+  /* display: flex; */
+}
+
+#btn {
+  /* width: 50px; */
+  display:inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#table1{
+  text-align: center;
+  border: none;
+  border-color: black;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>SAVE_ENERGY</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
+
+   <link rel="stylesheet" href="/static/css/open-iconic-bootstrap.min.css">
+   <link rel="stylesheet" href="/static/css/animate.css">
+
+   <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+   <link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+   <link rel="stylesheet" href="/static/css/magnific-popup.css">
+
+   <link rel="stylesheet" href="/static/css/aos.css">
+
+   <link rel="stylesheet" href="/static/css/ionicons.min.css">
+
+   <link rel="stylesheet" href="/static/css/flaticon.css">
+   <link rel="stylesheet" href="/static/css/icomoon.css">
+   <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/login_style.css">
+
+</head>
+
+<body>
+    <!-- 헤더 배경 -->
+   <section class="hero-wrap hero-wrap-2 backimage" style="background-image: url('/static/images/background_login.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+          <div class="col-md-9 ftco-animate pb-5 text-center">
+            <h1 class="mb-3 bread">Community</h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span class="mr-2"><a href="community.html">Community<i class="ion-ios-arrow-forward"></i></a></span><span class="mr-2"><a href="community_list1.html">List<i class="ion-ios-arrow-forward"></i></a></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 네비 설정 -->
+   <div class="overlay"></div>
+   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+         <a class="navbar-brand" href="{%url 'home' %}"><img src='/static/images/earth.png' alt='logo' style="width: 100px;"><span
+               id="clock"></span></a>
+         <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse"
+            data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+         </button>
+         {% if user.is_authenticated %}
+         <form method="POST" action="{%url 'logout' %}">
+           <span class="nav-item cta"><a href="{%url 'logout' %}" class="nav-link">로그아웃</a></span>
+         </form>
+         {% else %}  
+         <a class="nav-link" href="{% url 'login' %}">로그인</a>
+         {% endif %}
+      </div>
+   </nav>
+
+   <!-- 내용 부분 -->
+   <section class="ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 order-lg-last ftco-animate">
+            <div class="container">
+                <br><br>
+                <h1>글이 삭제되었습니다.</h1>
+                <br><br>
+                <a href="{%url 'community' %}">
+                    <button type="button" class="btn btn-primary to-main">To Community</button>
+                </a>
+            </div>
+        </div> <!-- .col-md-8 -->
+
+        <div class="col-lg-4 sidebar ftco-animate">
+          <div class="sidebar-box ftco-animate">
+            <h3 class="heading-sidebar">Categories</h3>
+            <ul class="categories">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="introduce.html">Introduce</a></li>
+              <li><a href="{%url 'community' %}">Community</a></li>
+              <li><a href="support_logout.html">Supporting</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section> <!-- .section -->
+
+   <!-- loader -->
+   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+         <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+            stroke="#F96D00" />
+      </svg></div>
+
+
+   <script src="/static/js/jquery.min.js"></script>
+   <script src="/static/js/jquery-migrate-3.0.1.min.js"></script>
+   <script src="/static/js/popper.min.js"></script>
+   <script src="/static/js/bootstrap.min.js"></script>
+   <script src="/static/js/jquery.easing.1.3.js"></script>
+   <script src="/static/js/jquery.waypoints.min.js"></script>
+   <script src="/static/js/jquery.stellar.min.js"></script>
+   <script src="/static/js/owl.carousel.min.js"></script>
+   <script src="/static/js/jquery.magnific-popup.min.js"></script>
+   <script src="/static/js/aos.js"></script>
+   <script src="/static/js/jquery.animateNumber.min.js"></script>
+   <script src="/static/js/scrollax.min.js"></script>
+   <!-- <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+   <!-- <script src="/static/js/google-map.js"></script> -->
+   <script src="/static/js/main.js"></script>
+   <script src="/static/js/clock.js"></script>
+   <script src="/static/js/power_calculation.js"></script>
+</body>
